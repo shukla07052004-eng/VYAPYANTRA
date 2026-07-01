@@ -1,6 +1,6 @@
-import { INIT_INVOICES } from './store.js'
+import { loadErpState } from './store.js'
 
-export const salesData = INIT_INVOICES
+export const salesData = loadErpState().invoices
 
 export const createInvoiceRecord = (invoice, id) => ({
   id,

@@ -10,6 +10,8 @@ const FILTER_CARD_STYLE = {
   marginBottom: 18,
 }
 
+const REPORTS_RESTORE_FOCUS_KEY = 'reports-restore-focus'
+
 export default function ReportLayout({ report, renderContent }) {
   const navigate = useNavigate()
   const { invoices, purchases, parties, expenses, itemMaster } = useApp()
@@ -49,6 +51,7 @@ export default function ReportLayout({ report, renderContent }) {
     priority: 50,
     handler: () => {
       sessionStorage.setItem('reports-last-card', report.id)
+      sessionStorage.setItem(REPORTS_RESTORE_FOCUS_KEY, 'true')
       navigate('/reports')
       return true
     },
@@ -71,6 +74,7 @@ export default function ReportLayout({ report, renderContent }) {
               variant="ghost"
               onClick={() => {
                 sessionStorage.setItem('reports-last-card', report.id)
+                sessionStorage.setItem(REPORTS_RESTORE_FOCUS_KEY, 'true')
                 navigate('/reports')
               }}
             >

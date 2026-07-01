@@ -16,6 +16,7 @@ import Table       from '../components/ui/Table.jsx'
 import Modal       from '../components/ui/Modal.jsx'
 import Button      from '../components/ui/Button.jsx'
 import InvoiceView from '../components/layout/InvoiceView.jsx'
+import ErpImportModal from '../components/import/ErpImportModal.jsx'
 
 const FILTERS = ['All', 'Paid', 'Partial', 'Pending']
 
@@ -26,6 +27,7 @@ export default function SalesPage({ onNewInvoice }) {
   const [search,      setSearch]      = useState('')
   const [filter,      setFilter]      = useState('All')
   const [viewInvoice, setViewInvoice] = useState(null)
+  const [importOpen,  setImportOpen]  = useState(false)
   const [payModal,    setPayModal]    = useState(null)   // invoice to pay
   const [payAmt,      setPayAmt]      = useState('')
   const [payMode,     setPayMode]     = useState('Cash')
@@ -135,14 +137,18 @@ export default function SalesPage({ onNewInvoice }) {
       {viewInvoice && (
         <InvoiceView invoice={viewInvoice} onClose={() => setViewInvoice(null)} />
       )}
+      <ErpImportModal open={importOpen} onClose={() => setImportOpen(false)} defaultKind="sales" />
 
       <PageHeader
         title="Sales"
         sub="Invoice management & receivables"
         right={
-          <Button variant="primary" onClick={onNewInvoice}>
-            + New Invoice
-          </Button>
+          <>
+            <Button variant="ghost" onClick={() => setImportOpen(true)}>Import</Button>
+            <Button variant="primary" onClick={onNewInvoice}>
+              + New Invoice
+            </Button>
+          </>
         }
       />
 
@@ -156,7 +162,7 @@ export default function SalesPage({ onNewInvoice }) {
         <KpiCard label="Total Billed"   value={fmtShort(totalBilled)}  sub={`${invoices.length} invoices`} />
         <KpiCard label="Collected"      value={fmtShort(totalPaid)}    />
         <KpiCard label="Outstanding"    value={fmtShort(outstanding)}  sub={`${overdueCount} unpaid`} />
-        <KpiCard label="Overdue"        value={fmtShort(38600)}        sub="1 invoice" />
+        <KpiCard label="Overdue"        value={fmtShort(outstanding)}  sub={`${overdueCount} invoice${overdueCount === 1 ? '' : 's'}`} />
       </div>
 
       <Card>

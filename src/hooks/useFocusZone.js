@@ -121,7 +121,7 @@ export default function useFocusZone({
       if (document.activeElement !== item) {
         item.focus({ preventScroll: options.preventScroll ?? true })
       }
-      scrollElementIntoView(item, { behavior: options.behavior })
+      scrollElementIntoView(item, { behavior: options.behavior, block: options.block ?? 'nearest' })
     })
     return true
   }, [syncTabIndices])
@@ -146,7 +146,6 @@ export default function useFocusZone({
       items.forEach((item, itemIndex) => {
         item.tabIndex = itemIndex === index ? 0 : -1
       })
-      scrollElementIntoView(target)
     }
 
     const handleKeyDown = (event) => {

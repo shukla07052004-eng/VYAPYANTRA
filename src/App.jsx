@@ -8,6 +8,7 @@ import useKeyboard, { DEFAULT_SHORTCUTS, KEYBOARD_SETTINGS_STORAGE_KEY } from '.
 import useFocusManager from './hooks/useFocusManager.js'
 import Sidebar, { NAV_ITEMS } from './components/layout/Sidebar.jsx'
 import Topbar from './components/layout/Topbar.jsx'
+import { scrollElementIntoView } from './utils/focusScroll.js'
 import Dashboard from './pages/Dashboard.jsx'
 import SalesPage from './pages/Sales.jsx'
 import PurchasePage from './pages/Purchase.jsx'
@@ -20,6 +21,7 @@ import ReportDetailPage from './pages/ReportDetailPage.jsx'
 import ExpenseManagementPage from './pages/ExpenseManagementPage.jsx'
 import { AiReportPage, AiReportsDashboardPage, BankingDashboardPage, BankingModulePage, ItemsMasterPage, UtilitiesDashboardPage, UtilityModulePage } from './pages/WorkspaceModules.jsx'
 import { findSidebarSectionByPath, getVisibleSidebarItems } from './data/erpModules.js'
+
 import {
   DuesPage,
   ReportsPage,
@@ -50,7 +52,8 @@ const PAGE_FOCUS_TARGETS = {
   '/reports/balance-sheet': '#report-balance-sheet [data-focus-item="true"]',
   '/items': '#items-master-table [data-focus-item="true"]',
   '/ai-reports': '#ai-reports-dashboard [data-focus-item="true"]',
-  '/ai-reports/sales-prediction': '#ai-sales-prediction [data-focus-item="true"]',
+  '/ai-reports/sales-prediction': '#sales-prediction-subnav',
+  '/ai-reports/sales-prediction/forecast': '#sales-prediction-subnav',
   '/ai-reports/purchase-prediction': '#ai-purchase-prediction [data-focus-item="true"]',
   '/ai-reports/dead-stock-analysis': '#ai-dead-stock-analysis [data-focus-item="true"]',
   '/ai-reports/expense-analysis': '#ai-expense-analysis [data-focus-item="true"]',
@@ -220,10 +223,10 @@ function AppShell({ onReady, focusManager, mainRef, focusMainTarget, forceSideba
   const [openSidebarSectionId, setOpenSidebarSectionId] = useState(() => findSidebarSectionByPath(location.pathname))
   const visibleSidebarItems = useMemo(() => getVisibleSidebarItems(openSidebarSectionId), [openSidebarSectionId])
   const [sidebarIndex, setSidebarIndex] = useState(0)
-  const [routeFocusMode, setRouteFocusMode] = useState('sidebar')
+  const [routeFocusMode, setRouteFocusMode] = useState('idle')
   const isLockedWorkspaceRoute = isLockedWorkspacePath(location.pathname)
   const searchRef = useRef(null)
-  const initialSidebarFocusDoneRef = useRef(false)
+  const initialContentFocusSkippedRef = useRef(false)
 
   const focusSidebarItemById = useCallback((itemId, { collapseParent = false } = {}) => {
     if (!itemId) return false
@@ -244,7 +247,13 @@ function AppShell({ onReady, focusManager, mainRef, focusMainTarget, forceSideba
     let attempts = 8
     const tryFocus = () => {
       const focused = focusManager.focus(`sidebar-${focusTargetId}`)
-      if (focused) return
+      if (focused) {
+        requestAnimationFrame(() => {
+          const node = focusManager.getNode(`sidebar-${focusTargetId}`)
+          scrollElementIntoView(node, { block: 'nearest' })
+        })
+        return
+      }
       if (attempts <= 0) return
       attempts -= 1
       requestAnimationFrame(tryFocus)
@@ -258,7 +267,7 @@ function AppShell({ onReady, focusManager, mainRef, focusMainTarget, forceSideba
     const timer = setTimeout(() => setSidebarVisible(true), 200)
     onReady?.()
     return () => clearTimeout(timer)
-  }, [onReady])
+  }, [])
 
   useEffect(() => {
     const parentSectionId = findSidebarSectionByPath(location.pathname)
@@ -279,6 +288,11 @@ function AppShell({ onReady, focusManager, mainRef, focusMainTarget, forceSideba
 
   useEffect(() => {
     if (isLockedWorkspaceRoute) return
+    if (!initialContentFocusSkippedRef.current) {
+      initialContentFocusSkippedRef.current = true
+      return
+    }
+
     const activeElement = document.activeElement
     const mainElement = mainRef.current
     const focusInsideMain = activeElement instanceof HTMLElement && mainElement?.contains(activeElement)
@@ -296,16 +310,7 @@ function AppShell({ onReady, focusManager, mainRef, focusMainTarget, forceSideba
       focusSidebarItemById(targetId)
       return
     }
-
-    const current = visibleSidebarItems[sidebarIndex] ?? visibleSidebarItems[0]
-    if (!current) return
-
-    if (!initialSidebarFocusDoneRef.current) {
-      initialSidebarFocusDoneRef.current = true
-      focusSidebarItemById(current.id)
-      return
-    }
-  }, [focusSidebarItemById, forceSidebarRestoreRef, isLockedWorkspaceRoute, sidebarIndex, sidebarVisible, visibleSidebarItems, location.pathname])
+  }, [focusSidebarItemById, forceSidebarRestoreRef, isLockedWorkspaceRoute, location.pathname, sidebarVisible])
 
   const handleSidebarNavigate = useCallback((path) => {
     setRouteFocusMode('content')
@@ -389,7 +394,7 @@ function AppShell({ onReady, focusManager, mainRef, focusMainTarget, forceSideba
         handler: () => {
           const next = Math.max(sidebarIndex - 1, 0)
           setSidebarIndex(next)
-          focusManager.focus(`sidebar-${visibleSidebarItems[next]?.id}`)
+          focusSidebarItemById(visibleSidebarItems[next]?.id)
         },
       },
       {
@@ -533,7 +538,9 @@ function AppShell({ onReady, focusManager, mainRef, focusMainTarget, forceSideba
             <Route path="/reports/cashflow" element={<ReportDetailPage reportId="cashflow" />} />
             <Route path="/reports/balance-sheet" element={<ReportDetailPage reportId="balance-sheet" />} />
             <Route path="/items" element={<ItemsMasterPage />} />
-            <Route path="/ai-reports" element={<Navigate to="/ai-reports/sales-prediction" replace />} />
+            <Route path="/ai-reports" element={<Navigate to="/ai-reports/sales-prediction/forecast" replace />} />
+            <Route path="/ai-reports/sales-prediction" element={<Navigate to="/ai-reports/sales-prediction/forecast" replace />} />
+            <Route path="/ai-reports/:reportId/:salesView" element={<AiReportPage />} />
             <Route path="/ai-reports/:reportId" element={<AiReportPage />} />
             <Route path="/banking" element={<Navigate to="/banking/loan-accounts" replace />} />
             <Route path="/banking/:moduleId" element={<BankingModulePage />} />

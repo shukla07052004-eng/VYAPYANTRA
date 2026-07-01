@@ -12,6 +12,7 @@ import {
   Table,
 } from '../components/ui/index.js'
 import Button from '../components/ui/Button.jsx'
+import ErpImportModal from '../components/import/ErpImportModal.jsx'
 
 const PARTY_FILTERS = ['All', 'Customer', 'Supplier', 'Distributor', 'Carrier', 'Agent']
 
@@ -21,6 +22,7 @@ export default function PartiesPage() {
   const searchRef = useRef(null)
   const [search, setSearch] = useState('')
   const [filter, setFilter] = useState('All')
+  const [importOpen, setImportOpen] = useState(false)
 
   useEffect(() => {
     const handler = (event) => {
@@ -51,10 +53,16 @@ export default function PartiesPage() {
 
   return (
     <div className="animate-slide">
+      <ErpImportModal open={importOpen} onClose={() => setImportOpen(false)} defaultKind="parties" />
       <PageHeader
         title="Parties"
         sub="Keyboard-first party directory with full enterprise onboarding."
-        right={<Button variant="primary" onClick={() => navigate('/parties/new')}>+ Add Party</Button>}
+        right={(
+          <>
+            <Button variant="ghost" onClick={() => setImportOpen(true)}>Import</Button>
+            <Button variant="primary" onClick={() => navigate('/parties/new')}>+ Add Party</Button>
+          </>
+        )}
       />
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14, marginBottom: 22 }}>

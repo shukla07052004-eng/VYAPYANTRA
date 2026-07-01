@@ -5,8 +5,9 @@
 // MRP vs Selling analysis, CA-grade summary
 // ============================================================
 import React, { useState, useMemo, useCallback } from 'react'
+import { useApp } from '../context/AppContext.jsx'
 import {
-  SAMPLE_BILLS,
+  buildBillsFromErp,
   processBills,
   filterBills,
   getPartyOptions,
@@ -42,6 +43,7 @@ const marginBg = (pct) => {
 
 // ── Main Component ────────────────────────────────────────────
 export default function BillWiseProfitReport({ onBack }) {
+  const { invoices, purchases, itemMaster } = useApp()
   // Filters
   const [fromDate,    setFromDate]    = useState('')
   const [toDate,      setToDate]      = useState('')
@@ -50,12 +52,13 @@ export default function BillWiseProfitReport({ onBack }) {
   const [showMrp,     setShowMrp]     = useState(false)   // toggle MRP column
   const [expandedRows, setExpandedRows] = useState(new Set())
 
-  const partyOptions = useMemo(() => getPartyOptions(SAMPLE_BILLS), [])
+  const bills = useMemo(() => buildBillsFromErp({ invoices, purchases, itemMaster }), [invoices, itemMaster, purchases])
+  const partyOptions = useMemo(() => getPartyOptions(bills), [bills])
 
   // Filter then process
   const filtered = useMemo(() =>
-    filterBills(SAMPLE_BILLS, { fromDate, toDate, party, search }),
-    [fromDate, toDate, party, search]
+    filterBills(bills, { fromDate, toDate, party, search }),
+    [bills, fromDate, toDate, party, search]
   )
 
   const { enriched, summary } = useMemo(() => processBills(filtered), [filtered])
@@ -165,7 +168,7 @@ export default function BillWiseProfitReport({ onBack }) {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
         <span style={{ fontSize: 12.5, color: 'var(--ink-40)' }}>
           Showing <strong style={{ color: 'var(--ink)' }}>{enriched.length}</strong> bill{enriched.length !== 1 ? 's' : ''}
-          {enriched.length !== SAMPLE_BILLS.length && ` (filtered from ${SAMPLE_BILLS.length})`}
+          {enriched.length !== bills.length && ` (filtered from ${bills.length})`}
         </span>
         <div style={{ display: 'flex', gap: 6 }}>
           <button onClick={expandAll}   style={BTN_GHOST}>Expand All</button>

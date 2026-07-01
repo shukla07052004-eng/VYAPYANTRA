@@ -1,9 +1,15 @@
-import React, { createContext, useCallback, useContext, useMemo, useRef, useState } from 'react'
-import { salesData, createInvoiceRecord } from '../data/salesData.js'
-import { partyData, createPartyRecord } from '../data/partyData.js'
-import { purchaseData, createPurchaseRecord } from '../data/purchaseData.js'
-import { expenseData, createExpenseRecord } from '../data/expenseData.js'
-import { INIT_WORKERS } from '../data/store.js'
+import React, { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
+import { createInvoiceRecord } from '../data/salesData.js'
+import { createPartyRecord } from '../data/partyData.js'
+import { createPurchaseRecord } from '../data/purchaseData.js'
+import { createExpenseRecord } from '../data/expenseData.js'
+import { loadErpState, saveErpState } from '../data/store.js'
+import {
+  buildNormalizedErpData,
+  importErpData,
+  normalizePersistedState,
+  resetRuntimeErpState,
+} from '../data/dataManager.js'
 import { buildReportState } from '../data/reportUtils.js'
 import { deriveStockLedger } from '../data/stockData.js'
 import {
@@ -108,11 +114,14 @@ function buildInitialItemMaster({ sales, purchases }) {
 }
 
 export function AppProvider({ children }) {
-  const [invoices, setInvoices] = useState(salesData)
-  const [parties, setParties] = useState(partyData)
-  const [purchases, setPurchases] = useState(purchaseData)
-  const [expenses, setExpenses] = useState(expenseData)
-  const [workers, setWorkers] = useState(INIT_WORKERS)
+  const initialErpState = useMemo(() => normalizePersistedState(loadErpState()), [])
+  const [invoices, setInvoices] = useState(initialErpState.invoices)
+  const [parties, setParties] = useState(initialErpState.parties)
+  const [purchases, setPurchases] = useState(initialErpState.purchases)
+  const [expenses, setExpenses] = useState(initialErpState.expenses)
+  const [workers, setWorkers] = useState(initialErpState.workers)
+  const [revenueData, setRevenueData] = useState(initialErpState.revenueData)
+  const [importMeta, setImportMeta] = useState(initialErpState.importMeta)
   const [companies, setCompanies] = useState(SAMPLE_COMPANIES)
   const [sharedCompanies] = useState(SHARED_COMPANIES)
   const [loans, setLoans] = useState(SAMPLE_LOANS)
@@ -120,7 +129,28 @@ export function AppProvider({ children }) {
   const [bankAccounts, setBankAccounts] = useState(SAMPLE_BANK_ACCOUNTS)
   const [cashTransactions] = useState(SAMPLE_CASH_TRANSACTIONS)
   const [backupSettings, setBackupSettings] = useState(SAMPLE_BACKUP_SETTINGS)
-  const [items, setItems] = useState(() => buildInitialItemMaster({ sales: salesData, purchases: purchaseData }))
+  const [items, setItems] = useState(() => {
+    if (initialErpState.items?.length) return initialErpState.items
+    return buildInitialItemMaster({ sales: initialErpState.invoices, purchases: initialErpState.purchases })
+  })
+
+  useEffect(() => {
+    saveErpState({
+      version: initialErpState.version,
+      invoices,
+      parties,
+      purchases,
+      expenses,
+      workers,
+      items,
+      revenueData,
+      importMeta,
+      business: initialErpState.business,
+      cashEntries: initialErpState.cashEntries,
+      bankEntries: initialErpState.bankEntries,
+      backups: initialErpState.backups,
+    })
+  }, [expenses, importMeta, initialErpState, invoices, items, parties, purchases, revenueData, workers])
 
   const undoStack = useRef([])
   const pushUndo = (fn) => {
@@ -361,6 +391,47 @@ export function AppProvider({ children }) {
     if (fn) fn()
   }, [])
 
+  const getStateSnapshot = useCallback(() => normalizePersistedState({
+    ...initialErpState,
+    invoices,
+    parties,
+    purchases,
+    expenses,
+    workers,
+    items,
+    revenueData,
+    importMeta,
+  }), [expenses, importMeta, initialErpState, invoices, items, parties, purchases, revenueData, workers])
+
+  const applyStateSnapshot = useCallback((state) => {
+    const normalized = normalizePersistedState(state)
+    setInvoices(normalized.invoices)
+    setParties(normalized.parties)
+    setPurchases(normalized.purchases)
+    setExpenses(normalized.expenses)
+    setWorkers(normalized.workers)
+    setItems(normalized.items?.length ? normalized.items : buildInitialItemMaster({ sales: normalized.invoices, purchases: normalized.purchases }))
+    setRevenueData(normalized.revenueData)
+    setImportMeta(normalized.importMeta)
+  }, [])
+
+  const importData = useCallback((importResult, options = {}) => {
+    const outcome = importErpData(getStateSnapshot(), importResult, options)
+    if (!outcome.ok) return outcome
+    applyStateSnapshot(outcome.state)
+    return { ok: true, errors: [], stats: outcome.stats }
+  }, [applyStateSnapshot, getStateSnapshot])
+
+  const importFromParsedPayload = useCallback((importResult, options = {}) =>
+    importData(importResult, options)
+  , [importData])
+
+  const clearImportedData = useCallback(() => {
+    const defaults = resetRuntimeErpState()
+    applyStateSnapshot(defaults)
+    return defaults
+  }, [applyStateSnapshot])
+
   const getPartyInvoices = useCallback((partyName) =>
     invoices.filter((invoice) => invoice.party === partyName)
   , [invoices])
@@ -418,7 +489,21 @@ export function AppProvider({ children }) {
     purchases,
     parties,
     expenses,
-  }), [expenses, invoices, parties, purchases])
+    itemMaster,
+  }), [expenses, invoices, itemMaster, parties, purchases])
+
+  const erpData = useMemo(() => buildNormalizedErpData({
+    ...initialErpState,
+    invoices,
+    parties,
+    purchases,
+    expenses,
+    workers,
+    items,
+    revenueData,
+    importMeta,
+    business: initialErpState.business,
+  }), [expenses, importMeta, initialErpState, invoices, items, parties, purchases, revenueData, workers])
 
   const getSummary = useCallback(() => {
     const totalSales = invoices.reduce((sum, invoice) => sum + invoice.total, 0)
@@ -434,9 +519,17 @@ export function AppProvider({ children }) {
   return (
     <AppContext.Provider value={{
       invoices,
+      sales: invoices,
       parties,
       purchases,
       expenses,
+      products: itemMaster,
+      dashboard: erpData.dashboard,
+      stock: erpData.stock,
+      analytics: erpData.analytics,
+      payments: erpData.payments,
+      gst: erpData.gst,
+      company: erpData.company,
       workers,
       companies,
       sharedCompanies,
@@ -448,6 +541,9 @@ export function AppProvider({ children }) {
       itemMaster,
       deletedItems,
       recentItems,
+      revenueData,
+      importMeta,
+      erpData,
       addInvoice,
       recordPayment,
       deleteInvoice,
@@ -469,6 +565,9 @@ export function AppProvider({ children }) {
       updateItem,
       deleteItem,
       touchRecentItem,
+      importFromParsedPayload,
+      importData,
+      clearImportedData,
       undo,
       getPartyInvoices,
       getPartyProfit,

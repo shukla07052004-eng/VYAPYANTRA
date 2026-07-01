@@ -1,6 +1,6 @@
-import { INIT_PARTIES } from './store.js'
+import { loadErpState } from './store.js'
 
-export const partyData = INIT_PARTIES
+export const partyData = loadErpState().parties
 
 export const createPartyRecord = (party) => ({
   id: Date.now(),

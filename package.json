@@ -1,0 +1,29 @@
+{
+  "name": "bizledger-pro",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "server": "npm --prefix server run dev",
+    "server:start": "npm --prefix server start"
+  },
+  "dependencies": {
+    "@tinymce/tinymce-react": "github:tinymce/tinymce-react",
+    "appwrite": "^26.0.0",
+    "html-react-parser": "^6.1.3",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "react-hook-form": "^7.79.0",
+    "react-redux": "^9.3.0",
+    "react-router-dom": "^6.24.0",
+    "recharts": "^2.12.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.0",
+    "vite": "^5.3.0"
+  }
+}

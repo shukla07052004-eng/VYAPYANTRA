@@ -2,7 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
+import { client } from './lib/appwrite.js'
 import './index.css'
+
+client.ping()
+  .then(() => console.log('[Appwrite] Backend connection verified'))
+  .catch((error) => console.warn('[Appwrite] Ping failed:', error))
 
 let pendingLoaderTimeout = null
 

@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "fileName": "marg-stock-export.xlsx",
+    "fileType": "xlsx",
+    "uploadedAt": "2026-06-18T10:30:00.000Z",
+    "totalRows": 2,
+    "importProfile": "marg-erp",
+    "columnMapping": {
+      "itemName": 0,
+      "batchNo": 1,
+      "expiryDate": 2,
+      "rate": 3,
+      "gstPercent": 4,
+      "quantity": 5
+    },
+    "unmappedColumns": []
+  },
+  "records": [
+    {
+      "invoiceNo": "",
+      "invoiceDate": "",
+      "partyName": "",
+      "mobile": "",
+      "itemName": "Paracetamol 500mg",
+      "batchNo": "BT2401",
+      "expiryDate": "2027-03-31",
+      "quantity": 120,
+      "rate": 28.5,
+      "discount": 0,
+      "gstPercent": 12,
+      "taxableAmount": 3420,
+      "gstAmount": 410.4,
+      "totalAmount": 3830.4,
+      "hsnCode": "30049099"
+    },
+    {
+      "invoiceNo": "",
+      "invoiceDate": "",
+      "partyName": "",
+      "mobile": "",
+      "itemName": "ORS Powder",
+      "batchNo": "BT2409",
+      "expiryDate": "2026-12-15",
+      "quantity": 80,
+      "rate": 18,
+      "discount": 0,
+      "gstPercent": 5,
+      "taxableAmount": 1440,
+      "gstAmount": 72,
+      "totalAmount": 1512,
+      "hsnCode": "30049011"
+    }
+  ]
+}

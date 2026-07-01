@@ -14,6 +14,7 @@ import Button      from '../components/ui/Button.jsx'
 import PurchaseInvoiceView from '../components/layout/PurchaseInvoiceView.jsx'
 import useAutocomplete from '../hooks/useAutocomplete.js'
 import useKeyboard from '../hooks/useKeyboard.js'
+import ErpImportModal from '../components/import/ErpImportModal.jsx'
 
 const FILTERS = ['All', 'Paid', 'Partial', 'Pending']
 const CELL_INPUT = {
@@ -29,6 +30,7 @@ export default function PurchasePage({ onNewPurchase }) {
   const { purchases, addPurchase, parties } = useApp()
   const toast = useToast()
   const [open, setOpen] = useState(false)
+  const [importOpen, setImportOpen] = useState(false)
   const [viewPO, setViewPO] = useState(null)
   const [search, setSearch] = useState('')
   const [filter, setFilter] = useState('All')
@@ -140,8 +142,18 @@ export default function PurchasePage({ onNewPurchase }) {
   return (
     <div className="animate-slide">
       {viewPO && <PurchaseInvoiceView purchase={viewPO} onClose={() => setViewPO(null)} />}
+      <ErpImportModal open={importOpen} onClose={() => setImportOpen(false)} defaultKind="purchases" />
 
-      <PageHeader title="Purchase" sub="Keyboard-first purchase entry aligned with the invoice workflow." right={<Button variant="primary" onClick={onNewPurchase}>+ New Purchase</Button>} />
+      <PageHeader
+        title="Purchase"
+        sub="Keyboard-first purchase entry aligned with the invoice workflow."
+        right={(
+          <>
+            <Button variant="ghost" onClick={() => setImportOpen(true)}>Import</Button>
+            <Button variant="primary" onClick={onNewPurchase}>+ New Purchase</Button>
+          </>
+        )}
+      />
       <div className="kpi-grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 14, marginBottom: 22 }}>
         <KpiCard label="This Month" value={fmtShort(totalAll)} sub={`${purchases.length} orders`} />
         <KpiCard label="Unpaid" value={fmtShort(totalUnpaid)} />

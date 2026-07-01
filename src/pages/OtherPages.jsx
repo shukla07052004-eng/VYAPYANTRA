@@ -21,12 +21,14 @@ import { Avatar, Badge } from '../components/ui/index.js'
 import Button from '../components/ui/Button.jsx'
 import Modal from '../components/ui/Modal.jsx'
 import PurchaseInvoiceView from '../components/layout/PurchaseInvoiceView.jsx'
-import { CASH_ENTRIES, BANK_ENTRIES, BACKUPS as INIT_BACKUPS } from '../data/store.js'
+import { BACKUPS as INIT_BACKUPS } from '../data/store.js'
 import { useEscapeAction } from '../context/EscapeContext.jsx'
 import useAutocomplete from '../hooks/useAutocomplete.js'
 import useKeyboard from '../hooks/useKeyboard.js'
 import useKeyboardListNavigation from '../hooks/useKeyboardListNavigation.js'
 import { REPORT_DEFINITIONS } from '../components/reports/reportDefinitions.js'
+
+const REPORTS_RESTORE_FOCUS_KEY = 'reports-restore-focus'
 
 const CELL_INPUT = {
   width: '100%',
@@ -333,11 +335,18 @@ export function ExpensePage() {
 
 export function CashBankPage() {
   const toast = useToast()
+  const { invoices, purchases, expenses, bankAccounts, importMeta } = useApp()
   const [cashOpen, setCashOpen] = useState(false)
   const [bankOpen, setBankOpen] = useState(false)
-  const cashIn = CASH_ENTRIES.reduce((sum, row) => sum + row.credit, 0)
-  const cashOut = CASH_ENTRIES.reduce((sum, row) => sum + row.debit, 0)
+  const cashEntries = useMemo(() => buildCashLedger({ invoices, purchases, expenses }), [expenses, invoices, purchases])
+  const bankEntries = useMemo(() => buildBankLedger({ invoices, purchases, expenses }), [expenses, invoices, purchases])
+  const cashIn = cashEntries.reduce((sum, row) => sum + row.credit, 0)
+  const cashOut = cashEntries.reduce((sum, row) => sum + row.debit, 0)
   const balance = cashIn - cashOut
+  const derivedBankBalance = bankEntries.reduce((sum, row) => sum + (Number(row.credit) || 0) - (Number(row.debit) || 0), 0)
+  const bankBalance = importMeta
+    ? derivedBankBalance
+    : bankAccounts.reduce((sum, account) => sum + (Number(account.balance) || 0), 0)
 
   const amountCell = (value, positive) => value ? <span style={{ color: positive ? 'var(--green)' : 'var(--red)', fontWeight: 600, fontFamily: 'var(--mono)' }}>{fmt(value)}</span> : <span style={{ color: 'var(--ink-20)' }}>—</span>
 
@@ -346,17 +355,17 @@ export function CashBankPage() {
       <PageHeader title="Cash & Bank" sub="Ledger balances, transfers and reconciliation." />
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14, marginBottom: 22 }}>
         <KpiCard label="Cash in Hand" value={fmt(balance)} />
-        <KpiCard label="Bank Balance" value={fmtShort(324800)} />
-        <KpiCard label="Total Liquid" value={fmtShort(393200)} />
+        <KpiCard label="Bank Balance" value={fmtShort(bankBalance)} />
+        <KpiCard label="Total Liquid" value={fmtShort(balance + bankBalance)} />
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
         <Card>
           <CardHead title="Cash Ledger" right={<Button size="sm" variant="ghost" onClick={() => setCashOpen(true)}>+ Entry</Button>} />
-          <Table focusId="cash-ledger" cols={[{ key: 'date', label: 'Date', dim: true }, { key: 'narration', label: 'Narration', wrap: true }, { key: 'credit', label: 'In', right: true, render: (value) => amountCell(value, true) }, { key: 'debit', label: 'Out', right: true, render: (value) => amountCell(value, false) }]} rows={CASH_ENTRIES} />
+          <Table focusId="cash-ledger" cols={[{ key: 'date', label: 'Date', dim: true }, { key: 'narration', label: 'Narration', wrap: true }, { key: 'credit', label: 'In', right: true, render: (value) => amountCell(value, true) }, { key: 'debit', label: 'Out', right: true, render: (value) => amountCell(value, false) }]} rows={cashEntries} />
         </Card>
         <Card>
           <CardHead title="Bank Transactions" right={<Button size="sm" variant="ghost" onClick={() => setBankOpen(true)}>+ Entry</Button>} />
-          <Table focusId="bank-ledger" cols={[{ key: 'date', label: 'Date', dim: true }, { key: 'description', label: 'Description', wrap: true }, { key: 'credit', label: 'Credit', right: true, render: (value) => amountCell(value, true) }, { key: 'debit', label: 'Debit', right: true, render: (value) => amountCell(value, false) }]} rows={BANK_ENTRIES} />
+          <Table focusId="bank-ledger" cols={[{ key: 'date', label: 'Date', dim: true }, { key: 'description', label: 'Description', wrap: true }, { key: 'credit', label: 'Credit', right: true, render: (value) => amountCell(value, true) }, { key: 'debit', label: 'Debit', right: true, render: (value) => amountCell(value, false) }]} rows={bankEntries} />
         </Card>
       </div>
 
@@ -386,8 +395,66 @@ export function CashBankPage() {
   )
 }
 
+function buildCashLedger({ invoices = [], purchases = [], expenses = [] } = {}) {
+  return [
+    ...invoices
+      .filter((invoice) => Number(invoice.paid) > 0 && String(invoice.mode || invoice.paymentMode || '').toLowerCase() === 'cash')
+      .map((invoice) => ({
+        date: invoice.date,
+        narration: `Receipt - ${invoice.party || invoice.id}`,
+        credit: Number(invoice.paid) || 0,
+        debit: 0,
+      })),
+    ...purchases
+      .filter((purchase) => Number(purchase.paid) > 0 && String(purchase.mode || '').toLowerCase() === 'cash')
+      .map((purchase) => ({
+        date: purchase.date,
+        narration: `Purchase payment - ${purchase.supplier || purchase.id}`,
+        credit: 0,
+        debit: Number(purchase.paid) || 0,
+      })),
+    ...expenses
+      .filter((expense) => String(expense.mode || expense.paymentMode || '').toLowerCase() === 'cash')
+      .map((expense) => ({
+        date: expense.date,
+        narration: expense.desc || expense.title || expense.category,
+        credit: 0,
+        debit: Number(expense.amount) || 0,
+      })),
+  ].sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')))
+}
+
+function buildBankLedger({ invoices = [], purchases = [], expenses = [] } = {}) {
+  return [
+    ...invoices
+      .filter((invoice) => Number(invoice.paid) > 0 && String(invoice.mode || invoice.paymentMode || '').toLowerCase() !== 'cash')
+      .map((invoice) => ({
+        date: invoice.date,
+        description: `Receipt - ${invoice.party || invoice.id}`,
+        credit: Number(invoice.paid) || 0,
+        debit: 0,
+      })),
+    ...purchases
+      .filter((purchase) => Number(purchase.paid) > 0 && String(purchase.mode || '').toLowerCase() !== 'cash')
+      .map((purchase) => ({
+        date: purchase.date,
+        description: `Purchase payment - ${purchase.supplier || purchase.id}`,
+        credit: 0,
+        debit: Number(purchase.paid) || 0,
+      })),
+    ...expenses
+      .filter((expense) => String(expense.mode || expense.paymentMode || '').toLowerCase() !== 'cash')
+      .map((expense) => ({
+        date: expense.date,
+        description: expense.desc || expense.title || expense.category,
+        credit: 0,
+        debit: Number(expense.amount) || 0,
+      })),
+  ].sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')))
+}
+
 export function DuesPage() {
-  const { invoices } = useApp()
+  const { invoices, purchases } = useApp()
   const dues = invoices.filter((invoice) => invoice.status !== 'Paid').map((invoice) => ({
     party: invoice.party,
     bill: invoice.id,
@@ -396,14 +463,19 @@ export function DuesPage() {
     due: invoice.total - invoice.paid,
   }))
   const totalDue = dues.reduce((sum, row) => sum + row.due, 0)
+  const totalPayable = purchases.reduce((sum, purchase) => {
+    const amount = Number(purchase.amount) || 0
+    const paid = Number(purchase.paid) || 0
+    return sum + Math.max(amount - paid, 0)
+  }, 0)
 
   return (
     <div className="animate-slide">
       <PageHeader title="Dues & Payments" sub="Bill-wise outstanding receivables and payables." />
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14, marginBottom: 22 }}>
         <KpiCard label="Total Receivable" value={fmtShort(totalDue)} sub={`${dues.length} pending`} />
-        <KpiCard label="Total Payable" value={fmtShort(214800)} />
-        <KpiCard label="Net Position" value={fmtShort(totalDue - 214800)} />
+        <KpiCard label="Total Payable" value={fmtShort(totalPayable)} />
+        <KpiCard label="Net Position" value={fmtShort(totalDue - totalPayable)} />
       </div>
       <Card>
         <CardHead title="Outstanding Bills" />
@@ -514,8 +586,14 @@ export function ReportsPage() {
   const reportsGridFocus = useKeyboardListNavigation({ orientation: 'grid' })
 
   useEffect(() => {
+    const restoreRequested = Boolean(location.state?.focusReport) || sessionStorage.getItem(REPORTS_RESTORE_FOCUS_KEY) === 'true'
+    if (!restoreRequested) return
+
     const focusReportId = location.state?.focusReport || sessionStorage.getItem('reports-last-card')
-    if (!focusReportId) return
+    if (!focusReportId) {
+      sessionStorage.removeItem(REPORTS_RESTORE_FOCUS_KEY)
+      return
+    }
 
     const index = REPORT_DEFINITIONS.findIndex((report) => report.id === focusReportId)
     requestAnimationFrame(() => {
@@ -523,6 +601,7 @@ export function ReportsPage() {
       else reportsGridFocus.focusFirst()
     })
 
+    sessionStorage.removeItem(REPORTS_RESTORE_FOCUS_KEY)
     sessionStorage.removeItem('reports-last-card')
     if (window.history.state?.usr) {
       navigate(location.pathname, { replace: true, state: {} })

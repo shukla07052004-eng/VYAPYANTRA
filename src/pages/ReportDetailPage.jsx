@@ -704,7 +704,7 @@ export default function ReportDetailPage({ reportId }) {
   const { itemMaster } = useApp()
 
   if (reportId === 'gst') {
-    return <GSTReportsPage onBack={() => { sessionStorage.setItem('reports-last-card', 'gst'); navigate('/reports') }} />
+    return <GSTReportsPage onBack={() => { sessionStorage.setItem('reports-last-card', 'gst'); sessionStorage.setItem('reports-restore-focus', 'true'); navigate('/reports') }} />
   }
 
   const renderer = renderers[reportId]

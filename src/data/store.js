@@ -175,3 +175,92 @@ export const BACKUPS = [
   { date: '02 Apr 23:00', size: '11.9 MB', type: 'Auto',   status: 'OK' },
   { date: '01 Apr 14:30', size: '11.8 MB', type: 'Manual', status: 'OK' },
 ]
+
+// ── Central persisted ERP state (import + runtime mutations) ───────────────
+
+export const ERP_STORAGE_KEY = 'bizledger.erp.state'
+export const ERP_STATE_VERSION = 1
+
+/** @typedef {object} ErpState */
+
+export function getDefaultErpState() {
+  return {
+    version: ERP_STATE_VERSION,
+    invoices: structuredCloneSafe(INIT_INVOICES),
+    parties: structuredCloneSafe(INIT_PARTIES),
+    purchases: structuredCloneSafe(INIT_PURCHASES),
+    expenses: structuredCloneSafe(INIT_EXPENSES),
+    workers: structuredCloneSafe(INIT_WORKERS),
+    items: [],
+    business: { ...BUSINESS },
+    revenueData: structuredCloneSafe(REVENUE_DATA),
+    cashEntries: structuredCloneSafe(CASH_ENTRIES),
+    bankEntries: structuredCloneSafe(BANK_ENTRIES),
+    backups: structuredCloneSafe(BACKUPS),
+    importMeta: null,
+  }
+}
+
+function structuredCloneSafe(value) {
+  try {
+    return structuredClone(value)
+  } catch {
+    return JSON.parse(JSON.stringify(value))
+  }
+}
+
+function mergeWithDefaults(partial = {}) {
+  const defaults = getDefaultErpState()
+  return {
+    ...defaults,
+    ...partial,
+    business: { ...defaults.business, ...(partial.business || {}) },
+    invoices: Array.isArray(partial.invoices) ? partial.invoices : Array.isArray(partial.sales) ? partial.sales : defaults.invoices,
+    parties: Array.isArray(partial.parties) ? partial.parties : defaults.parties,
+    purchases: Array.isArray(partial.purchases) ? partial.purchases : defaults.purchases,
+    expenses: Array.isArray(partial.expenses) ? partial.expenses : defaults.expenses,
+    workers: Array.isArray(partial.workers) ? partial.workers : defaults.workers,
+    items: Array.isArray(partial.items) ? partial.items : Array.isArray(partial.products) ? partial.products : defaults.items,
+    revenueData: Array.isArray(partial.revenueData) ? partial.revenueData : defaults.revenueData,
+    cashEntries: Array.isArray(partial.cashEntries) ? partial.cashEntries : defaults.cashEntries,
+    bankEntries: Array.isArray(partial.bankEntries) ? partial.bankEntries : defaults.bankEntries,
+    backups: Array.isArray(partial.backups) ? partial.backups : defaults.backups,
+    importMeta: partial.importMeta ?? defaults.importMeta,
+  }
+}
+
+export function loadErpState() {
+  if (typeof window === 'undefined') return getDefaultErpState()
+  try {
+    const raw = window.localStorage.getItem(ERP_STORAGE_KEY)
+    if (!raw) return getDefaultErpState()
+    return mergeWithDefaults(JSON.parse(raw))
+  } catch {
+    return getDefaultErpState()
+  }
+}
+
+export function saveErpState(state) {
+  if (typeof window === 'undefined' || !state) return false
+  try {
+    const { _importStats, ...persistable } = state
+    window.localStorage.setItem(ERP_STORAGE_KEY, JSON.stringify(persistable))
+    return true
+  } catch {
+    return false
+  }
+}
+
+export function clearErpState() {
+  if (typeof window === 'undefined') return
+  window.localStorage.removeItem(ERP_STORAGE_KEY)
+}
+
+export async function applyImportPayloadToStore(payload, meta = {}) {
+  const { mergeImportIntoErpState } = await import('./importBridge.js')
+  const current = loadErpState()
+  const merged = mergeImportIntoErpState(current, payload, meta)
+  const { _importStats, ...persistable } = merged
+  saveErpState(persistable)
+  return { state: persistable, stats: _importStats }
+}

@@ -1,0 +1,2449 @@
+﻿[
+  {
+    "file": "All_Party_Report.xls",
+    "size": 21504,
+    "sheets": [
+      "All Parties Report"
+    ],
+    "sheetSummaries": [
+      {
+        "sheet": "All Parties Report",
+        "dimensions": "A1:H106",
+        "likelyHeaderRow": 1,
+        "likelyHeaders": [
+          "Party Name",
+          "Number",
+          "Email-ID",
+          "Address",
+          "GSTIN",
+          "Receivable Balance",
+          "Payable Balance",
+          "Credit Limit"
+        ],
+        "mapping": {
+          "mapping": {
+            "partyName": 0,
+            "gstin": 4
+          },
+          "unmapped": [
+            "Number",
+            "Email-ID",
+            "Address",
+            "Receivable Balance",
+            "Payable Balance",
+            "Credit Limit"
+          ]
+        },
+        "topRows": [
+          {
+            "row": 1,
+            "cells": [
+              "Party Name",
+              "Number",
+              "Email-ID",
+              "Address",
+              "GSTIN",
+              "Receivable Balance",
+              "Payable Balance",
+              "Credit Limit"
+            ]
+          },
+          {
+            "row": 2,
+            "cells": [
+              "AANVI MS AUASAPUR",
+              "9368447842",
+              "AUSAPUR BST",
+              "893"
+            ]
+          },
+          {
+            "row": 3,
+            "cells": [
+              "AANVI MS AUASAPUR'",
+              "0"
+            ]
+          },
+          {
+            "row": 4,
+            "cells": [
+              "ABHA MEDICAL AGENCY",
+              "JAMDEEH BASTI",
+              "0"
+            ]
+          },
+          {
+            "row": 5,
+            "cells": [
+              "Adarsh MS",
+              "7393961023",
+              "Kailly",
+              "0"
+            ]
+          },
+          {
+            "row": 6,
+            "cells": [
+              "AHEM MS KATRA BUJURG",
+              "88875 72263",
+              "KATRA BUJURG GANESHPUR",
+              "0"
+            ]
+          },
+          {
+            "row": 7,
+            "cells": [
+              "AK MEDICAL HALL",
+              "MANIKCHAND CHAURAHA PURAINA PANDEY UP51200000293,UP51210000294",
+              "0"
+            ]
+          },
+          {
+            "row": 8,
+            "cells": [
+              "AKHIL MEDICAL LAKSHMANPUR",
+              "+91 97928 51307",
+              "LAKSHMANPUR BASTI",
+              "0"
+            ]
+          }
+        ]
+      }
+    ],
+    "firstSheet": "All Parties Report",
+    "dimensions": "A1:H106",
+    "topRows": [
+      {
+        "row": 1,
+        "cells": [
+          "Party Name",
+          "Number",
+          "Email-ID",
+          "Address",
+          "GSTIN",
+          "Receivable Balance",
+          "Payable Balance",
+          "Credit Limit"
+        ]
+      },
+      {
+        "row": 2,
+        "cells": [
+          "AANVI MS AUASAPUR",
+          "9368447842",
+          "AUSAPUR BST",
+          "893"
+        ]
+      },
+      {
+        "row": 3,
+        "cells": [
+          "AANVI MS AUASAPUR'",
+          "0"
+        ]
+      },
+      {
+        "row": 4,
+        "cells": [
+          "ABHA MEDICAL AGENCY",
+          "JAMDEEH BASTI",
+          "0"
+        ]
+      },
+      {
+        "row": 5,
+        "cells": [
+          "Adarsh MS",
+          "7393961023",
+          "Kailly",
+          "0"
+        ]
+      },
+      {
+        "row": 6,
+        "cells": [
+          "AHEM MS KATRA BUJURG",
+          "88875 72263",
+          "KATRA BUJURG GANESHPUR",
+          "0"
+        ]
+      },
+      {
+        "row": 7,
+        "cells": [
+          "AK MEDICAL HALL",
+          "MANIKCHAND CHAURAHA PURAINA PANDEY UP51200000293,UP51210000294",
+          "0"
+        ]
+      },
+      {
+        "row": 8,
+        "cells": [
+          "AKHIL MEDICAL LAKSHMANPUR",
+          "+91 97928 51307",
+          "LAKSHMANPUR BASTI",
+          "0"
+        ]
+      },
+      {
+        "row": 9,
+        "cells": [
+          "AMIT MEDICAL AGENCIES",
+          "Kamal market 00 00 Gandhi Nagar",
+          "09AEPPV8940R1Z1",
+          "0"
+        ]
+      },
+      {
+        "row": 10,
+        "cells": [
+          "AMIT POLYCLINIC JAMDA",
+          "8874709191",
+          "JAMDA SHAHI",
+          "0"
+        ]
+      },
+      {
+        "row": 11,
+        "cells": [
+          "Anand Clinic Ganeshpur",
+          "9984033143",
+          "Ganeshpur",
+          "0"
+        ]
+      },
+      {
+        "row": 12,
+        "cells": [
+          "Anand M/S Maharajganj",
+          "9005940800",
+          "Maharajganj",
+          "0"
+        ]
+      }
+    ],
+    "appAssumedHeaderRow": 1,
+    "appHeaders": [
+      "Party Name",
+      "Number",
+      "Email-ID",
+      "Address",
+      "GSTIN",
+      "Receivable Balance",
+      "Payable Balance",
+      "Credit Limit"
+    ],
+    "appHeaderMapping": {
+      "mapping": {
+        "partyName": 0,
+        "gstin": 4
+      },
+      "unmapped": [
+        "Number",
+        "Email-ID",
+        "Address",
+        "Receivable Balance",
+        "Payable Balance",
+        "Credit Limit"
+      ]
+    },
+    "parsedRows": 104,
+    "firstParsedRows": [
+      {
+        "Party Name": "AANVI MS AUASAPUR",
+        "Number": "9368447842",
+        "Email-ID": "",
+        "Address": "AUSAPUR BST",
+        "GSTIN": "",
+        "Receivable Balance": 893,
+        "Payable Balance": "",
+        "Credit Limit": ""
+      },
+      {
+        "Party Name": "AANVI MS AUASAPUR'",
+        "Number": "",
+        "Email-ID": "",
+        "Address": "",
+        "GSTIN": "",
+        "Receivable Balance": 0,
+        "Payable Balance": "",
+        "Credit Limit": ""
+      },
+      {
+        "Party Name": "ABHA MEDICAL AGENCY",
+        "Number": "",
+        "Email-ID": "",
+        "Address": "JAMDEEH BASTI",
+        "GSTIN": "",
+        "Receivable Balance": 0,
+        "Payable Balance": "",
+        "Credit Limit": ""
+      }
+    ],
+    "likelyHeaderRow": 1,
+    "likelyHeaders": [
+      "Party Name",
+      "Number",
+      "Email-ID",
+      "Address",
+      "GSTIN",
+      "Receivable Balance",
+      "Payable Balance",
+      "Credit Limit"
+    ],
+    "likelyHeaderMapping": {
+      "mapping": {
+        "partyName": 0,
+        "gstin": 4
+      },
+      "unmapped": [
+        "Number",
+        "Email-ID",
+        "Address",
+        "Receivable Balance",
+        "Payable Balance",
+        "Credit Limit"
+      ]
+    },
+    "importResult": {
+      "success": false,
+      "recordCount": 0,
+      "errors": [
+        {
+          "row": 0,
+          "field": "_server",
+          "message": "MARG_ERP_FIELD_MAP is not defined",
+          "stack": "ReferenceError: MARG_ERP_FIELD_MAP is not defined\n    at file:///C:/Users/shash/OneDrive/Desktop/VYAPYANTRA/src/modules/file-import/utils/dataCleaner.js:125:65\n    at Array.filter (<anonymous>)\n    at detectImportProfile (file:///C:/Users/shash/OneDrive/Desktop/VYAPYANTRA/src/modules/file-import/utils/dataCleaner.js:125:34)\n    at normalizeData (file:///C:/Users/shash/OneDrive/Desktop/VYAPYANTRA/src/modules/file-import/core/normalizeData.js:20:25)\n    at processServerImport (file:///C:/Users/shash/OneDrive/Desktop/VYAPYANTRA/server/services/importProcessor.js:33:22)\n    at file:///C:/Users/shash/OneDrive/Desktop/VYAPYANTRA/tmp/analyze-imports.mjs:65:23\n    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+        }
+      ],
+      "warnings": [],
+      "meta": {},
+      "firstRecords": []
+    }
+  },
+  {
+    "file": "Item_Detail_Report_01-06-2026_to_30-06-2026.xls",
+    "size": 7168,
+    "sheets": [
+      "Item Details Report"
+    ],
+    "sheetSummaries": [
+      {
+        "sheet": "Item Details Report",
+        "dimensions": "A1:E35",
+        "likelyHeaderRow": 2,
+        "likelyHeaders": [
+          "Date",
+          "Sale Quantity",
+          "Purchase Quantity",
+          "Adjustment Quantity",
+          "Closing Quantity"
+        ],
+        "mapping": {
+          "mapping": {
+            "invoiceDate": 0
+          },
+          "unmapped": [
+            "Sale Quantity",
+            "Purchase Quantity",
+            "Adjustment Quantity",
+            "Closing Quantity"
+          ]
+        },
+        "topRows": [
+          {
+            "row": 1,
+            "cells": [
+              "Item Name",
+              "ALDIGESIC SP FORTE"
+            ]
+          },
+          {
+            "row": 2,
+            "cells": [
+              "Date",
+              "Sale Quantity",
+              "Purchase Quantity",
+              "Adjustment Quantity",
+              "Closing Quantity"
+            ]
+          },
+          {
+            "row": 3,
+            "cells": [
+              "01/06/2026",
+              "0.00",
+              "0.00",
+              "0.00",
+              "-40.00"
+            ]
+          },
+          {
+            "row": 4,
+            "cells": [
+              "01/06/2026",
+              "0.00",
+              "0.00",
+              "0.00",
+              "-40.00"
+            ]
+          },
+          {
+            "row": 5,
+            "cells": [
+              "02/06/2026",
+              "0.00",
+              "0.00",
+              "0.00",
+              "-40.00"
+            ]
+          },
+          {
+            "row": 6,
+            "cells": [
+              "03/06/2026",
+              "80.00",
+              "80.00",
+              "0.00",
+              "-40.00"
+            ]
+          },
+          {
+            "row": 7,
+            "cells": [
+              "04/06/2026",
+              "0.00",
+              "0.00",
+              "0.00",
+              "-40.00"
+            ]
+          },
+          {
+            "row": 8,
+            "cells": [
+              "05/06/2026",
+              "0.00",
+              "0.00",
+              "0.00",
+              "-40.00"
+            ]
+          }
+        ]
+      }
+    ],
+    "firstSheet": "Item Details Report",
+    "dimensions": "A1:E35",
+    "topRows": [
+      {
+        "row": 1,
+        "cells": [
+          "Item Name",
+          "ALDIGESIC SP FORTE"
+        ]
+      },
+      {
+        "row": 2,
+        "cells": [
+          "Date",
+          "Sale Quantity",
+          "Purchase Quantity",
+          "Adjustment Quantity",
+          "Closing Quantity"
+        ]
+      },
+      {
+        "row": 3,
+        "cells": [
+          "01/06/2026",
+          "0.00",
+          "0.00",
+          "0.00",
+          "-40.00"
+        ]
+      },
+      {
+        "row": 4,
+        "cells": [
+          "01/06/2026",
+          "0.00",
+          "0.00",
+          "0.00",
+          "-40.00"
+        ]
+      },
+      {
+        "row": 5,
+        "cells": [
+          "02/06/2026",
+          "0.00",
+          "0.00",
+          "0.00",
+          "-40.00"
+        ]
+      },
+      {
+        "row": 6,
+        "cells": [
+          "03/06/2026",
+          "80.00",
+          "80.00",
+          "0.00",
+          "-40.00"
+        ]
+      },
+      {
+        "row": 7,
+        "cells": [
+          "04/06/2026",
+          "0.00",
+          "0.00",
+          "0.00",
+          "-40.00"
+        ]
+      },
+      {
+        "row": 8,
+        "cells": [
+          "05/06/2026",
+          "0.00",
+          "0.00",
+          "0.00",
+          "-40.00"
+        ]
+      },
+      {
+        "row": 9,
+        "cells": [
+          "06/06/2026",
+          "0.00",
+          "0.00",
+          "0.00",
+          "-40.00"
+        ]
+      },
+      {
+        "row": 10,
+        "cells": [
+          "07/06/2026",
+          "0.00",
+          "0.00",
+          "0.00",
+          "-40.00"
+        ]
+      },
+      {
+        "row": 11,
+        "cells": [
+          "08/06/2026",
+          "0.00",
+          "0.00",
+          "0.00",
+          "-40.00"
+        ]
+      },
+      {
+        "row": 12,
+        "cells": [
+          "09/06/2026",
+          "0.00",
+          "0.00",
+          "0.00",
+          "-40.00"
+        ]
+      }
+    ],
+    "appAssumedHeaderRow": 1,
+    "appHeaders": [
+      "Item Name",
+      "ALDIGESIC SP FORTE",
+      "column_2",
+      "column_3",
+      "column_4"
+    ],
+    "appHeaderMapping": {
+      "mapping": {
+        "itemName": 0
+      },
+      "unmapped": [
+        "ALDIGESIC SP FORTE",
+        "column_2",
+        "column_3",
+        "column_4"
+      ]
+    },
+    "parsedRows": 32,
+    "firstParsedRows": [
+      {
+        "Item Name": "Date",
+        "ALDIGESIC SP FORTE": "Sale Quantity",
+        "column_2": "Purchase Quantity",
+        "column_3": "Adjustment Quantity",
+        "column_4": "Closing Quantity"
+      },
+      {
+        "Item Name": "01/06/2026",
+        "ALDIGESIC SP FORTE": "0.00",
+        "column_2": "0.00",
+        "column_3": "0.00",
+        "column_4": "-40.00"
+      },
+      {
+        "Item Name": "01/06/2026",
+        "ALDIGESIC SP FORTE": "0.00",
+        "column_2": "0.00",
+        "column_3": "0.00",
+        "column_4": "-40.00"
+      }
+    ],
+    "likelyHeaderRow": 2,
+    "likelyHeaders": [
+      "Date",
+      "Sale Quantity",
+      "Purchase Quantity",
+      "Adjustment Quantity",
+      "Closing Quantity"
+    ],
+    "likelyHeaderMapping": {
+      "mapping": {
+        "invoiceDate": 0
+      },
+      "unmapped": [
+        "Sale Quantity",
+        "Purchase Quantity",
+        "Adjustment Quantity",
+        "Closing Quantity"
+      ]
+    },
+    "importResult": {
+      "success": false,
+      "recordCount": 0,
+      "errors": [
+        {
+          "row": 0,
+          "field": "_server",
+          "message": "MARG_ERP_FIELD_MAP is not defined",
+          "stack": "ReferenceError: MARG_ERP_FIELD_MAP is not defined\n    at file:///C:/Users/shash/OneDrive/Desktop/VYAPYANTRA/src/modules/file-import/utils/dataCleaner.js:125:65\n    at Array.filter (<anonymous>)\n    at detectImportProfile (file:///C:/Users/shash/OneDrive/Desktop/VYAPYANTRA/src/modules/file-import/utils/dataCleaner.js:125:34)\n    at normalizeData (file:///C:/Users/shash/OneDrive/Desktop/VYAPYANTRA/src/modules/file-import/core/normalizeData.js:20:25)\n    at processServerImport (file:///C:/Users/shash/OneDrive/Desktop/VYAPYANTRA/server/services/importProcessor.js:33:22)\n    at file:///C:/Users/shash/OneDrive/Desktop/VYAPYANTRA/tmp/analyze-imports.mjs:65:23"
+        }
+      ],
+      "warnings": [],
+      "meta": {},
+      "firstRecords": []
+    }
+  },
+  {
+    "file": "All Transactions Report_01-06-2026_to_30-06-2026.xls",
+    "size": 122880,
+    "sheets": [
+      "All Transactions Report",
+      "Item Details"
+    ],
+    "sheetSummaries": [
+      {
+        "sheet": "All Transactions Report",
+        "dimensions": "A1:L159",
+        "likelyHeaderRow": 6,
+        "likelyHeaders": [
+          "Date",
+          "Party Name",
+          "Category",
+          "Transaction Type",
+          "Ref No.",
+          "Payment Status",
+          "Description",
+          "Amount",
+          "Payment Type",
+          "Received Amount",
+          "Paid Amount",
+          "Balance Amount"
+        ],
+        "mapping": {
+          "mapping": {
+            "invoiceDate": 0,
+            "partyName": 1,
+            "category": 2,
+            "itemName": 6,
+            "taxableAmount": 7
+          },
+          "unmapped": [
+            "Transaction Type",
+            "Ref No.",
+            "Payment Status",
+            "Payment Type",
+            "Received Amount",
+            "Paid Amount",
+            "Balance Amount"
+          ]
+        },
+        "topRows": [
+          {
+            "row": 1,
+            "cells": [
+              "Username",
+              "All Users"
+            ]
+          },
+          {
+            "row": 2,
+            "cells": [
+              "From Date:",
+              "01/06/2026"
+            ]
+          },
+          {
+            "row": 3,
+            "cells": [
+              "To Date:",
+              "30/06/2026"
+            ]
+          },
+          {
+            "row": 4,
+            "cells": [
+              "Party Name:",
+              "All parties"
+            ]
+          },
+          {
+            "row": 5,
+            "cells": [
+              "Transaction Type:",
+              "All Transactions"
+            ]
+          },
+          {
+            "row": 6,
+            "cells": [
+              "Date",
+              "Party Name",
+              "Category",
+              "Transaction Type",
+              "Ref No.",
+              "Payment Status",
+              "Description",
+              "Amount",
+              "Payment Type",
+              "Received Amount",
+              "Paid Amount",
+              "Balance Amount"
+            ]
+          },
+          {
+            "row": 7,
+            "cells": [
+              "01/06/2026",
+              "RETAIL",
+              "Sale",
+              "917",
+              "Paid",
+              "150.00",
+              "RAJAT PANDEY",
+              "150.00",
+              "0.00"
+            ]
+          },
+          {
+            "row": 8,
+            "cells": [
+              "02/06/2026",
+              "M.S MS SHANKARPUR (GANESHPUR)",
+              "Sale",
+              "918",
+              "Paid",
+              "80.00",
+              "RAJAT PANDEY",
+              "80.00",
+              "0.00"
+            ]
+          }
+        ]
+      },
+      {
+        "sheet": "Item Details",
+        "dimensions": "A1:O355",
+        "likelyHeaderRow": 2,
+        "likelyHeaders": [
+          "Date",
+          "Party Name",
+          "Expense Category",
+          "Invoice No.",
+          "Item Name",
+          "Batch No.",
+          "Exp. Date",
+          "Size",
+          "Item code",
+          "Quantity",
+          "Unit",
+          "Price/Unit",
+          "Discount",
+          "GST",
+          "Amount"
+        ],
+        "mapping": {
+          "mapping": {
+            "invoiceDate": 0,
+            "partyName": 1,
+            "category": 2,
+            "invoiceNo": 3,
+            "itemName": 4,
+            "batchNo": 5,
+            "expiryDate": 6,
+            "quantity": 9,
+            "discount": 12,
+            "gstPercent": 13,
+            "taxableAmount": 14
+          },
+          "unmapped": [
+            "Size",
+            "Item code",
+            "Unit",
+            "Price/Unit"
+          ]
+        },
+        "topRows": [
+          {
+            "row": 1,
+            "cells": [
+              "Username",
+              "All Users"
+            ]
+          },
+          {
+            "row": 2,
+            "cells": [
+              "Date",
+              "Party Name",
+              "Expense Category",
+              "Invoice No.",
+              "Item Name",
+              "Batch No.",
+              "Exp. Date",
+              "Size",
+              "Item code",
+              "Quantity",
+              "Unit",
+              "Price/Unit",
+              "Discount",
+              "GST",
+              "Amount"
+            ]
+          },
+          {
+            "row": 3,
+            "cells": [
+              "01/06/2026",
+              "RETAIL",
+              "917",
+              "UTEVON SYP",
+              "AS-445",
+              "08/2027",
+              "200ML",
+              "1.0",
+              "Btl",
+              "84.82",
+              "0.00(0.0%)",
+              "0.00(0.0%)",
+              "84.82"
+            ]
+          },
+          {
+            "row": 4,
+            "cells": [
+              "01/06/2026",
+              "RETAIL",
+              "917",
+              "EUDRO-M TAB",
+              "MPT25875A",
+              "10/2027",
+              "1*10",
+              "1.0",
+              "STRIP",
+              "42.00",
+              "0.00(0.0%)",
+              "0.00(0.0%)",
+              "42.00"
+            ]
+          },
+          {
+            "row": 5,
+            "cells": [
+              "01/06/2026",
+              "RETAIL",
+              "917",
+              "PANTUR DSR",
+              "CG-7112",
+              "11/2027",
+              "1.0",
+              "23.00",
+              "0.00(0.0%)",
+              "0.00(0.0%)",
+              "23.00"
+            ]
+          },
+          {
+            "row": 6,
+            "cells": [
+              "02/06/2026",
+              "M.S MS SHANKARPUR (GANESHPUR)",
+              "918",
+              "EURAB DSR CAP",
+              "SE0007E",
+              "12/2027",
+              "10*10",
+              "5.0",
+              "STRIP",
+              "12.50",
+              "0.00(0.0%)",
+              "0.00(0.0%)",
+              "62.50"
+            ]
+          },
+          {
+            "row": 7,
+            "cells": [
+              "02/06/2026",
+              "M.S MS SHANKARPUR (GANESHPUR)",
+              "918",
+              "CETIJAN TAB",
+              "6.0",
+              "3.00",
+              "0.00(0.0%)",
+              "0.00(0.0%)",
+              "18.00"
+            ]
+          },
+          {
+            "row": 8,
+            "cells": [
+              "02/06/2026",
+              "Anand Clinic Ganeshpur",
+              "919",
+              "FEXIRUS OF TAB",
+              "B-7099/B",
+              "10/2027",
+              "5.0",
+              "STRIP",
+              "66.00",
+              "0.00(0.0%)",
+              "0.00(0.0%)",
+              "330.00"
+            ]
+          }
+        ]
+      }
+    ],
+    "firstSheet": "All Transactions Report",
+    "dimensions": "A1:L159",
+    "topRows": [
+      {
+        "row": 1,
+        "cells": [
+          "Username",
+          "All Users"
+        ]
+      },
+      {
+        "row": 2,
+        "cells": [
+          "From Date:",
+          "01/06/2026"
+        ]
+      },
+      {
+        "row": 3,
+        "cells": [
+          "To Date:",
+          "30/06/2026"
+        ]
+      },
+      {
+        "row": 4,
+        "cells": [
+          "Party Name:",
+          "All parties"
+        ]
+      },
+      {
+        "row": 5,
+        "cells": [
+          "Transaction Type:",
+          "All Transactions"
+        ]
+      },
+      {
+        "row": 6,
+        "cells": [
+          "Date",
+          "Party Name",
+          "Category",
+          "Transaction Type",
+          "Ref No.",
+          "Payment Status",
+          "Description",
+          "Amount",
+          "Payment Type",
+          "Received Amount",
+          "Paid Amount",
+          "Balance Amount"
+        ]
+      },
+      {
+        "row": 7,
+        "cells": [
+          "01/06/2026",
+          "RETAIL",
+          "Sale",
+          "917",
+          "Paid",
+          "150.00",
+          "RAJAT PANDEY",
+          "150.00",
+          "0.00"
+        ]
+      },
+      {
+        "row": 8,
+        "cells": [
+          "02/06/2026",
+          "M.S MS SHANKARPUR (GANESHPUR)",
+          "Sale",
+          "918",
+          "Paid",
+          "80.00",
+          "RAJAT PANDEY",
+          "80.00",
+          "0.00"
+        ]
+      },
+      {
+        "row": 9,
+        "cells": [
+          "02/06/2026",
+          "Anand Clinic Ganeshpur",
+          "Sale",
+          "919",
+          "Paid",
+          "580.00",
+          "RAJAT PANDEY",
+          "580.00",
+          "0.00"
+        ]
+      },
+      {
+        "row": 10,
+        "cells": [
+          "02/06/2026",
+          "RETAIL",
+          "Sale",
+          "920",
+          "Paid",
+          "853.00",
+          "RAJAT PANDEY",
+          "853.00",
+          "0.00"
+        ]
+      },
+      {
+        "row": 11,
+        "cells": [
+          "02/06/2026",
+          "DEVESH DISTRIBUTOR",
+          "Sale",
+          "921",
+          "Paid",
+          "98.00",
+          "RAJAT PANDEY",
+          "98.00",
+          "0.00"
+        ]
+      },
+      {
+        "row": 12,
+        "cells": [
+          "02/06/2026",
+          "Shobhit MS DUBAULA",
+          "Sale",
+          "922",
+          "Paid",
+          "531.00",
+          "RAJAT PANDEY",
+          "531.00",
+          "0.00"
+        ]
+      }
+    ],
+    "appAssumedHeaderRow": 1,
+    "appHeaders": [
+      "Username",
+      "All Users",
+      "column_2",
+      "column_3",
+      "column_4",
+      "column_5",
+      "column_6",
+      "column_7",
+      "column_8",
+      "column_9",
+      "column_10",
+      "column_11"
+    ],
+    "appHeaderMapping": {
+      "mapping": {},
+      "unmapped": [
+        "Username",
+        "All Users",
+        "column_2",
+        "column_3",
+        "column_4",
+        "column_5",
+        "column_6",
+        "column_7",
+        "column_8",
+        "column_9",
+        "column_10",
+        "column_11"
+      ]
+    },
+    "parsedRows": 157,
+    "firstParsedRows": [
+      {
+        "Username": "From Date:",
+        "All Users": "01/06/2026",
+        "column_2": "",
+        "column_3": "",
+        "column_4": "",
+        "column_5": "",
+        "column_6": "",
+        "column_7": "",
+        "column_8": "",
+        "column_9": "",
+        "column_10": "",
+        "column_11": ""
+      },
+      {
+        "Username": "To Date:",
+        "All Users": "30/06/2026",
+        "column_2": "",
+        "column_3": "",
+        "column_4": "",
+        "column_5": "",
+        "column_6": "",
+        "column_7": "",
+        "column_8": "",
+        "column_9": "",
+        "column_10": "",
+        "column_11": ""
+      },
+      {
+        "Username": "Party Name:",
+        "All Users": "All parties",
+        "column_2": "",
+        "column_3": "",
+        "column_4": "",
+        "column_5": "",
+        "column_6": "",
+        "column_7": "",
+        "column_8": "",
+        "column_9": "",
+        "column_10": "",
+        "column_11": ""
+      }
+    ],
+    "likelyHeaderRow": 6,
+    "likelyHeaders": [
+      "Date",
+      "Party Name",
+      "Category",
+      "Transaction Type",
+      "Ref No.",
+      "Payment Status",
+      "Description",
+      "Amount",
+      "Payment Type",
+      "Received Amount",
+      "Paid Amount",
+      "Balance Amount"
+    ],
+    "likelyHeaderMapping": {
+      "mapping": {
+        "invoiceDate": 0,
+        "partyName": 1,
+        "category": 2,
+        "itemName": 6,
+        "taxableAmount": 7
+      },
+      "unmapped": [
+        "Transaction Type",
+        "Ref No.",
+        "Payment Status",
+        "Payment Type",
+        "Received Amount",
+        "Paid Amount",
+        "Balance Amount"
+      ]
+    },
+    "importResult": {
+      "success": false,
+      "recordCount": 0,
+      "errors": [
+        {
+          "row": 0,
+          "field": "_server",
+          "message": "MARG_ERP_FIELD_MAP is not defined",
+          "stack": "ReferenceError: MARG_ERP_FIELD_MAP is not defined\n    at file:///C:/Users/shash/OneDrive/Desktop/VYAPYANTRA/src/modules/file-import/utils/dataCleaner.js:125:65\n    at Array.filter (<anonymous>)\n    at detectImportProfile (file:///C:/Users/shash/OneDrive/Desktop/VYAPYANTRA/src/modules/file-import/utils/dataCleaner.js:125:34)\n    at normalizeData (file:///C:/Users/shash/OneDrive/Desktop/VYAPYANTRA/src/modules/file-import/core/normalizeData.js:20:25)\n    at processServerImport (file:///C:/Users/shash/OneDrive/Desktop/VYAPYANTRA/server/services/importProcessor.js:33:22)\n    at file:///C:/Users/shash/OneDrive/Desktop/VYAPYANTRA/tmp/analyze-imports.mjs:65:23"
+        }
+      ],
+      "warnings": [],
+      "meta": {},
+      "firstRecords": []
+    }
+  },
+  {
+    "file": "Purchase_Report_01-06-2026_to_30-06-2026.xls",
+    "size": 37888,
+    "sheets": [
+      "Purchase Report",
+      "Purchase Items"
+    ],
+    "sheetSummaries": [
+      {
+        "sheet": "Purchase Report",
+        "dimensions": "A1:M24",
+        "likelyHeaderRow": 2,
+        "likelyHeaders": [
+          "Date",
+          "Party Name",
+          "Phone No.",
+          "Party's GSTIN No.",
+          "Order No.",
+          "Bill No.",
+          "Transaction Type",
+          "Payment Status",
+          "Total Amount",
+          "Payment Type",
+          "Paid Amount",
+          "Balance Amount",
+          "Description"
+        ],
+        "mapping": {
+          "mapping": {
+            "invoiceDate": 0,
+            "partyName": 1,
+            "mobile": 2,
+            "invoiceNo": 5,
+            "totalAmount": 8,
+            "itemName": 12
+          },
+          "unmapped": [
+            "Party's GSTIN No.",
+            "Order No.",
+            "Transaction Type",
+            "Payment Status",
+            "Payment Type",
+            "Paid Amount",
+            "Balance Amount"
+          ]
+        },
+        "topRows": [
+          {
+            "row": 1,
+            "cells": [
+              "Generated on Jun 28,2026 at 02:13 pm"
+            ]
+          },
+          {
+            "row": 2,
+            "cells": [
+              "Date",
+              "Party Name",
+              "Phone No.",
+              "Party's GSTIN No.",
+              "Order No.",
+              "Bill No.",
+              "Transaction Type",
+              "Payment Status",
+              "Total Amount",
+              "Payment Type",
+              "Paid Amount",
+              "Balance Amount",
+              "Description"
+            ]
+          },
+          {
+            "row": 3,
+            "cells": [
+              "25/06/2026",
+              "EURUS LIFESCIENCES LLP",
+              "7863010311",
+              "24AAGFE8481R1Z0",
+              "EL000490",
+              "Purchase",
+              "Paid",
+              "19136.00",
+              "Cash",
+              "19136.00",
+              "0.00"
+            ]
+          },
+          {
+            "row": 4,
+            "cells": [
+              "23/06/2026",
+              "RAMA MEDICAL AGENCIES",
+              "00",
+              "A003659",
+              "Purchase",
+              "Paid",
+              "2105.00",
+              "Cash",
+              "2105.00",
+              "0.00"
+            ]
+          },
+          {
+            "row": 5,
+            "cells": [
+              "23/06/2026",
+              "Shivam Pharma BST",
+              "Purchase",
+              "Paid",
+              "124.00",
+              "Cash",
+              "124.00",
+              "0.00"
+            ]
+          },
+          {
+            "row": 6,
+            "cells": [
+              "23/06/2026",
+              "ABHA MEDICAL AGENCY",
+              "Purchase",
+              "Paid",
+              "3470.00",
+              "Cash",
+              "3470.00",
+              "0.00"
+            ]
+          },
+          {
+            "row": 7,
+            "cells": [
+              "17/06/2026",
+              "ABHA MEDICAL AGENCY",
+              "Purchase",
+              "Paid",
+              "1080.00",
+              "Cash",
+              "1080.00",
+              "0.00"
+            ]
+          },
+          {
+            "row": 8,
+            "cells": [
+              "17/06/2026",
+              "AVINASH PHARMA",
+              "A001127",
+              "Purchase",
+              "Paid",
+              "1302.00",
+              "Cash",
+              "1302.00",
+              "0.00"
+            ]
+          }
+        ]
+      },
+      {
+        "sheet": "Purchase Items",
+        "dimensions": "A1:N111",
+        "likelyHeaderRow": 1,
+        "likelyHeaders": [
+          "Date",
+          "Party Name",
+          "Invoice No.",
+          "Item Name",
+          "Batch No.",
+          "Exp. Date",
+          "Size",
+          "Item code",
+          "Quantity",
+          "Unit",
+          "Price/Unit",
+          "Discount",
+          "GST",
+          "Amount"
+        ],
+        "mapping": {
+          "mapping": {
+            "invoiceDate": 0,
+            "partyName": 1,
+            "invoiceNo": 2,
+            "itemName": 3,
+            "batchNo": 4,
+            "expiryDate": 5,
+            "quantity": 8,
+            "discount": 11,
+            "gstPercent": 12,
+            "taxableAmount": 13
+          },
+          "unmapped": [
+            "Size",
+            "Item code",
+            "Unit",
+            "Price/Unit"
+          ]
+        },
+        "topRows": [
+          {
+            "row": 1,
+            "cells": [
+              "Date",
+              "Party Name",
+              "Invoice No.",
+              "Item Name",
+              "Batch No.",
+              "Exp. Date",
+              "Size",
+              "Item code",
+              "Quantity",
+              "Unit",
+              "Price/Unit",
+              "Discount",
+              "GST",
+              "Amount"
+            ]
+          },
+          {
+            "row": 2,
+            "cells": [
+              "25/06/2026",
+              "EURUS LIFESCIENCES LLP",
+              "EL000490",
+              "CEFTRIARUS 1GM",
+              "CEF2506A",
+              "05/2027",
+              "60.0",
+              "17.44",
+              "0.00(0.0%)",
+              "0.00(0.0%)",
+              "1046.40"
+            ]
+          },
+          {
+            "row": 3,
+            "cells": [
+              "25/06/2026",
+              "EURUS LIFESCIENCES LLP",
+              "EL000490",
+              "COFRUS-D",
+              "SP251363",
+              "11/2027",
+              "100 ML",
+              "25.0",
+              "Btl",
+              "13.95",
+              "0.00(0.0%)",
+              "0.00(0.0%)",
+              "348.75"
+            ]
+          },
+          {
+            "row": 4,
+            "cells": [
+              "25/06/2026",
+              "EURUS LIFESCIENCES LLP",
+              "EL000490",
+              "EUR 4G SG",
+              "AK19341",
+              "03/2027",
+              "10*10",
+              "20.0",
+              "17.44",
+              "0.00(0.0%)",
+              "0.00(0.0%)",
+              "348.80"
+            ]
+          },
+          {
+            "row": 5,
+            "cells": [
+              "25/06/2026",
+              "EURUS LIFESCIENCES LLP",
+              "EL000490",
+              "DOLRUS P TAB 1*15",
+              "T260166",
+              "02/2028",
+              "15*10",
+              "900.0",
+              "13.08",
+              "0.00(0.0%)",
+              "0.00(0.0%)",
+              "11772.00"
+            ]
+          },
+          {
+            "row": 6,
+            "cells": [
+              "25/06/2026",
+              "EURUS LIFESCIENCES LLP",
+              "EL000490",
+              "EURAB LSR CAP",
+              "CG-7131",
+              "01/2028",
+              "10*10",
+              "10.0",
+              "14.47",
+              "0.00(0.0%)",
+              "0.00(0.0%)",
+              "144.70"
+            ]
+          },
+          {
+            "row": 7,
+            "cells": [
+              "25/06/2026",
+              "EURUS LIFESCIENCES LLP",
+              "EL000490",
+              "EURAB DSR CAP",
+              "SE0038B",
+              "01/2028",
+              "10*10",
+              "100.0",
+              "STRIP",
+              "9.33",
+              "0.00(0.0%)",
+              "0.00(0.0%)",
+              "933.00"
+            ]
+          },
+          {
+            "row": 8,
+            "cells": [
+              "25/06/2026",
+              "EURUS LIFESCIENCES LLP",
+              "EL000490",
+              "EUTIZER SYP",
+              "SP251205",
+              "10/2027",
+              "15.0",
+              "Btl",
+              "21.36",
+              "0.00(0.0%)",
+              "0.00(0.0%)",
+              "320.40"
+            ]
+          }
+        ]
+      }
+    ],
+    "firstSheet": "Purchase Report",
+    "dimensions": "A1:M24",
+    "topRows": [
+      {
+        "row": 1,
+        "cells": [
+          "Generated on Jun 28,2026 at 02:13 pm"
+        ]
+      },
+      {
+        "row": 2,
+        "cells": [
+          "Date",
+          "Party Name",
+          "Phone No.",
+          "Party's GSTIN No.",
+          "Order No.",
+          "Bill No.",
+          "Transaction Type",
+          "Payment Status",
+          "Total Amount",
+          "Payment Type",
+          "Paid Amount",
+          "Balance Amount",
+          "Description"
+        ]
+      },
+      {
+        "row": 3,
+        "cells": [
+          "25/06/2026",
+          "EURUS LIFESCIENCES LLP",
+          "7863010311",
+          "24AAGFE8481R1Z0",
+          "EL000490",
+          "Purchase",
+          "Paid",
+          "19136.00",
+          "Cash",
+          "19136.00",
+          "0.00"
+        ]
+      },
+      {
+        "row": 4,
+        "cells": [
+          "23/06/2026",
+          "RAMA MEDICAL AGENCIES",
+          "00",
+          "A003659",
+          "Purchase",
+          "Paid",
+          "2105.00",
+          "Cash",
+          "2105.00",
+          "0.00"
+        ]
+      },
+      {
+        "row": 5,
+        "cells": [
+          "23/06/2026",
+          "Shivam Pharma BST",
+          "Purchase",
+          "Paid",
+          "124.00",
+          "Cash",
+          "124.00",
+          "0.00"
+        ]
+      },
+      {
+        "row": 6,
+        "cells": [
+          "23/06/2026",
+          "ABHA MEDICAL AGENCY",
+          "Purchase",
+          "Paid",
+          "3470.00",
+          "Cash",
+          "3470.00",
+          "0.00"
+        ]
+      },
+      {
+        "row": 7,
+        "cells": [
+          "17/06/2026",
+          "ABHA MEDICAL AGENCY",
+          "Purchase",
+          "Paid",
+          "1080.00",
+          "Cash",
+          "1080.00",
+          "0.00"
+        ]
+      },
+      {
+        "row": 8,
+        "cells": [
+          "17/06/2026",
+          "AVINASH PHARMA",
+          "A001127",
+          "Purchase",
+          "Paid",
+          "1302.00",
+          "Cash",
+          "1302.00",
+          "0.00"
+        ]
+      },
+      {
+        "row": 9,
+        "cells": [
+          "16/06/2026",
+          "Shivam Pharma BST",
+          "A001560",
+          "Purchase",
+          "Paid",
+          "2575.00",
+          "Cash",
+          "2575.00",
+          "0.00"
+        ]
+      },
+      {
+        "row": 10,
+        "cells": [
+          "16/06/2026",
+          "Shivam Pharma BST",
+          "Purchase",
+          "Paid",
+          "221.00",
+          "Cash",
+          "221.00",
+          "0.00"
+        ]
+      },
+      {
+        "row": 11,
+        "cells": [
+          "15/06/2026",
+          "Shivam Pharma BST",
+          "Purchase",
+          "Paid",
+          "209.00",
+          "Cash",
+          "209.00",
+          "0.00"
+        ]
+      },
+      {
+        "row": 12,
+        "cells": [
+          "10/06/2026",
+          "Shivam Pharma BST",
+          "Purchase",
+          "Paid",
+          "1436.00",
+          "Cash",
+          "1436.00",
+          "0.00"
+        ]
+      }
+    ],
+    "appAssumedHeaderRow": 1,
+    "appHeaders": [
+      "Generated on Jun 28,2026 at 02:13 pm",
+      "column_1",
+      "column_2",
+      "column_3",
+      "column_4",
+      "column_5",
+      "column_6",
+      "column_7",
+      "column_8",
+      "column_9",
+      "column_10",
+      "column_11",
+      "column_12"
+    ],
+    "appHeaderMapping": {
+      "mapping": {},
+      "unmapped": [
+        "Generated on Jun 28,2026 at 02:13 pm",
+        "column_1",
+        "column_2",
+        "column_3",
+        "column_4",
+        "column_5",
+        "column_6",
+        "column_7",
+        "column_8",
+        "column_9",
+        "column_10",
+        "column_11",
+        "column_12"
+      ]
+    },
+    "parsedRows": 20,
+    "firstParsedRows": [
+      {
+        "Generated on Jun 28,2026 at 02:13 pm": "Date",
+        "column_1": "Party Name",
+        "column_2": "Phone No.",
+        "column_3": "Party's GSTIN No.",
+        "column_4": "Order No.",
+        "column_5": "Bill No.",
+        "column_6": "Transaction Type",
+        "column_7": "Payment Status",
+        "column_8": "Total Amount",
+        "column_9": "Payment Type",
+        "column_10": "Paid Amount",
+        "column_11": "Balance Amount",
+        "column_12": "Description"
+      },
+      {
+        "Generated on Jun 28,2026 at 02:13 pm": "25/06/2026",
+        "column_1": "EURUS LIFESCIENCES LLP",
+        "column_2": "7863010311",
+        "column_3": "24AAGFE8481R1Z0",
+        "column_4": "",
+        "column_5": "EL000490",
+        "column_6": "Purchase",
+        "column_7": "Paid",
+        "column_8": "19136.00",
+        "column_9": "Cash",
+        "column_10": "19136.00",
+        "column_11": "0.00",
+        "column_12": ""
+      },
+      {
+        "Generated on Jun 28,2026 at 02:13 pm": "23/06/2026",
+        "column_1": "RAMA MEDICAL AGENCIES",
+        "column_2": "00",
+        "column_3": "",
+        "column_4": "",
+        "column_5": "A003659",
+        "column_6": "Purchase",
+        "column_7": "Paid",
+        "column_8": "2105.00",
+        "column_9": "Cash",
+        "column_10": "2105.00",
+        "column_11": "0.00",
+        "column_12": ""
+      }
+    ],
+    "likelyHeaderRow": 2,
+    "likelyHeaders": [
+      "Date",
+      "Party Name",
+      "Phone No.",
+      "Party's GSTIN No.",
+      "Order No.",
+      "Bill No.",
+      "Transaction Type",
+      "Payment Status",
+      "Total Amount",
+      "Payment Type",
+      "Paid Amount",
+      "Balance Amount",
+      "Description"
+    ],
+    "likelyHeaderMapping": {
+      "mapping": {
+        "invoiceDate": 0,
+        "partyName": 1,
+        "mobile": 2,
+        "invoiceNo": 5,
+        "totalAmount": 8,
+        "itemName": 12
+      },
+      "unmapped": [
+        "Party's GSTIN No.",
+        "Order No.",
+        "Transaction Type",
+        "Payment Status",
+        "Payment Type",
+        "Paid Amount",
+        "Balance Amount"
+      ]
+    },
+    "importResult": {
+      "success": false,
+      "recordCount": 0,
+      "errors": [
+        {
+          "row": 0,
+          "field": "_server",
+          "message": "MARG_ERP_FIELD_MAP is not defined",
+          "stack": "ReferenceError: MARG_ERP_FIELD_MAP is not defined\n    at file:///C:/Users/shash/OneDrive/Desktop/VYAPYANTRA/src/modules/file-import/utils/dataCleaner.js:125:65\n    at Array.filter (<anonymous>)\n    at detectImportProfile (file:///C:/Users/shash/OneDrive/Desktop/VYAPYANTRA/src/modules/file-import/utils/dataCleaner.js:125:34)\n    at normalizeData (file:///C:/Users/shash/OneDrive/Desktop/VYAPYANTRA/src/modules/file-import/core/normalizeData.js:20:25)\n    at processServerImport (file:///C:/Users/shash/OneDrive/Desktop/VYAPYANTRA/server/services/importProcessor.js:33:22)\n    at file:///C:/Users/shash/OneDrive/Desktop/VYAPYANTRA/tmp/analyze-imports.mjs:65:23"
+        }
+      ],
+      "warnings": [],
+      "meta": {},
+      "firstRecords": []
+    }
+  },
+  {
+    "file": "Sale_Report_01-06-2026_to_30-06-2026.xls",
+    "size": 78336,
+    "sheets": [
+      "Sale Report",
+      "Sale Items"
+    ],
+    "sheetSummaries": [
+      {
+        "sheet": "Sale Report",
+        "dimensions": "A1:M67",
+        "likelyHeaderRow": 4,
+        "likelyHeaders": [
+          "Date",
+          "Party Name",
+          "Phone No.",
+          "Party's GSTIN No.",
+          "Order No.",
+          "Invoice No.",
+          "Transaction Type",
+          "Payment Status",
+          "Total Amount",
+          "Received Amount",
+          "Balance Amount",
+          "Description",
+          "RAJAT PANDEY"
+        ],
+        "mapping": {
+          "mapping": {
+            "invoiceDate": 0,
+            "partyName": 1,
+            "mobile": 2,
+            "invoiceNo": 5,
+            "totalAmount": 8,
+            "itemName": 11
+          },
+          "unmapped": [
+            "Party's GSTIN No.",
+            "Order No.",
+            "Transaction Type",
+            "Payment Status",
+            "Received Amount",
+            "Balance Amount",
+            "RAJAT PANDEY"
+          ]
+        },
+        "topRows": [
+          {
+            "row": 1,
+            "cells": [
+              "Generated on Jun 28,2026 at 02:13 pm"
+            ]
+          },
+          {
+            "row": 2,
+            "cells": [
+              "UserName",
+              "All Users"
+            ]
+          },
+          {
+            "row": 3,
+            "cells": [
+              "Banks"
+            ]
+          },
+          {
+            "row": 4,
+            "cells": [
+              "Date",
+              "Party Name",
+              "Phone No.",
+              "Party's GSTIN No.",
+              "Order No.",
+              "Invoice No.",
+              "Transaction Type",
+              "Payment Status",
+              "Total Amount",
+              "Received Amount",
+              "Balance Amount",
+              "Description",
+              "RAJAT PANDEY"
+            ]
+          },
+          {
+            "row": 5,
+            "cells": [
+              "25/06/2026",
+              "SHUSHMA MEDICAL AGENCY",
+              "82998 30670",
+              "975",
+              "Sale",
+              "Unpaid",
+              "4150.00",
+              "0.00",
+              "4150.00",
+              "0.00"
+            ]
+          },
+          {
+            "row": 6,
+            "cells": [
+              "25/06/2026",
+              "DEVESH DISTRIBUTOR",
+              "974",
+              "Sale",
+              "Paid",
+              "12274.00",
+              "12274.00",
+              "0.00",
+              "0.00"
+            ]
+          },
+          {
+            "row": 7,
+            "cells": [
+              "23/06/2026",
+              "SRIVASTVA MS AURATAL",
+              "9839861387",
+              "973",
+              "Sale",
+              "Paid",
+              "3945.00",
+              "3945.00",
+              "0.00",
+              "0.00"
+            ]
+          },
+          {
+            "row": 8,
+            "cells": [
+              "23/06/2026",
+              "NH MS HALLAUR",
+              "8565843335",
+              "972",
+              "Sale",
+              "Partial",
+              "830.00",
+              "800.00",
+              "30.00",
+              "0.00"
+            ]
+          }
+        ]
+      },
+      {
+        "sheet": "Sale Items",
+        "dimensions": "A1:N238",
+        "likelyHeaderRow": 2,
+        "likelyHeaders": [
+          "Date",
+          "Party Name",
+          "Invoice No.",
+          "Item Name",
+          "Batch No.",
+          "Exp. Date",
+          "Size",
+          "Item code",
+          "Quantity",
+          "Unit",
+          "Price/Unit",
+          "Discount",
+          "GST",
+          "Amount"
+        ],
+        "mapping": {
+          "mapping": {
+            "invoiceDate": 0,
+            "partyName": 1,
+            "invoiceNo": 2,
+            "itemName": 3,
+            "batchNo": 4,
+            "expiryDate": 5,
+            "quantity": 8,
+            "discount": 11,
+            "gstPercent": 12,
+            "taxableAmount": 13
+          },
+          "unmapped": [
+            "Size",
+            "Item code",
+            "Unit",
+            "Price/Unit"
+          ]
+        },
+        "topRows": [
+          {
+            "row": 1,
+            "cells": [
+              "Username",
+              "All Users"
+            ]
+          },
+          {
+            "row": 2,
+            "cells": [
+              "Date",
+              "Party Name",
+              "Invoice No.",
+              "Item Name",
+              "Batch No.",
+              "Exp. Date",
+              "Size",
+              "Item code",
+              "Quantity",
+              "Unit",
+              "Price/Unit",
+              "Discount",
+              "GST",
+              "Amount"
+            ]
+          },
+          {
+            "row": 3,
+            "cells": [
+              "25/06/2026",
+              "SHUSHMA MEDICAL AGENCY",
+              "975",
+              "DOLRUS P TAB 1*15",
+              "T260166",
+              "02/2028",
+              "15*10",
+              "100.0",
+              "41.50",
+              "0.00(0.0%)",
+              "0.00(0.0%)",
+              "4150.00"
+            ]
+          },
+          {
+            "row": 4,
+            "cells": [
+              "25/06/2026",
+              "DEVESH DISTRIBUTOR",
+              "974",
+              "CEFTRIARUS 1GM",
+              "CEF2506A",
+              "05/2027",
+              "60.0",
+              "19.62",
+              "0.00(0.0%)",
+              "0.00(0.0%)",
+              "1177.20"
+            ]
+          },
+          {
+            "row": 5,
+            "cells": [
+              "25/06/2026",
+              "DEVESH DISTRIBUTOR",
+              "974",
+              "COFRUS-D",
+              "SP251363",
+              "11/2027",
+              "100 ML",
+              "30.0",
+              "Btl",
+              "17.50",
+              "0.00(0.0%)",
+              "0.00(0.0%)",
+              "525.00"
+            ]
+          },
+          {
+            "row": 6,
+            "cells": [
+              "25/06/2026",
+              "DEVESH DISTRIBUTOR",
+              "974",
+              "EUR 4G SG",
+              "AK19341",
+              "03/2027",
+              "10*10",
+              "20.0",
+              "22.00",
+              "0.00(0.0%)",
+              "0.00(0.0%)",
+              "440.00"
+            ]
+          },
+          {
+            "row": 7,
+            "cells": [
+              "25/06/2026",
+              "DEVESH DISTRIBUTOR",
+              "974",
+              "EURAB LSR CAP",
+              "CG-7131",
+              "01/2028",
+              "10*10",
+              "10.0",
+              "18.26",
+              "0.00(0.0%)",
+              "0.00(0.0%)",
+              "182.60"
+            ]
+          },
+          {
+            "row": 8,
+            "cells": [
+              "25/06/2026",
+              "DEVESH DISTRIBUTOR",
+              "974",
+              "EURAB DSR CAP",
+              "SE0038B",
+              "01/2028",
+              "10*10",
+              "100.0",
+              "STRIP",
+              "11.77",
+              "0.00(0.0%)",
+              "0.00(0.0%)",
+              "1177.00"
+            ]
+          }
+        ]
+      }
+    ],
+    "firstSheet": "Sale Report",
+    "dimensions": "A1:M67",
+    "topRows": [
+      {
+        "row": 1,
+        "cells": [
+          "Generated on Jun 28,2026 at 02:13 pm"
+        ]
+      },
+      {
+        "row": 2,
+        "cells": [
+          "UserName",
+          "All Users"
+        ]
+      },
+      {
+        "row": 3,
+        "cells": [
+          "Banks"
+        ]
+      },
+      {
+        "row": 4,
+        "cells": [
+          "Date",
+          "Party Name",
+          "Phone No.",
+          "Party's GSTIN No.",
+          "Order No.",
+          "Invoice No.",
+          "Transaction Type",
+          "Payment Status",
+          "Total Amount",
+          "Received Amount",
+          "Balance Amount",
+          "Description",
+          "RAJAT PANDEY"
+        ]
+      },
+      {
+        "row": 5,
+        "cells": [
+          "25/06/2026",
+          "SHUSHMA MEDICAL AGENCY",
+          "82998 30670",
+          "975",
+          "Sale",
+          "Unpaid",
+          "4150.00",
+          "0.00",
+          "4150.00",
+          "0.00"
+        ]
+      },
+      {
+        "row": 6,
+        "cells": [
+          "25/06/2026",
+          "DEVESH DISTRIBUTOR",
+          "974",
+          "Sale",
+          "Paid",
+          "12274.00",
+          "12274.00",
+          "0.00",
+          "0.00"
+        ]
+      },
+      {
+        "row": 7,
+        "cells": [
+          "23/06/2026",
+          "SRIVASTVA MS AURATAL",
+          "9839861387",
+          "973",
+          "Sale",
+          "Paid",
+          "3945.00",
+          "3945.00",
+          "0.00",
+          "0.00"
+        ]
+      },
+      {
+        "row": 8,
+        "cells": [
+          "23/06/2026",
+          "NH MS HALLAUR",
+          "8565843335",
+          "972",
+          "Sale",
+          "Partial",
+          "830.00",
+          "800.00",
+          "30.00",
+          "0.00"
+        ]
+      },
+      {
+        "row": 9,
+        "cells": [
+          "23/06/2026",
+          "DR JAGDEEP PANDEY",
+          "8707672196",
+          "971",
+          "Sale",
+          "Paid",
+          "258.00",
+          "258.00",
+          "0.00",
+          "0.00"
+        ]
+      },
+      {
+        "row": 10,
+        "cells": [
+          "23/06/2026",
+          "KRISHNA MS KANETHU",
+          "8874491640",
+          "970",
+          "Sale",
+          "Paid",
+          "160.00",
+          "160.00",
+          "0.00",
+          "0.00"
+        ]
+      },
+      {
+        "row": 11,
+        "cells": [
+          "23/06/2026",
+          "UMESH MS LAKSHMANPUR",
+          "8052155208",
+          "969",
+          "Sale",
+          "Paid",
+          "272.00",
+          "272.00",
+          "0.00",
+          "0.00"
+        ]
+      },
+      {
+        "row": 12,
+        "cells": [
+          "23/06/2026",
+          "SHUSHMA MEDICAL AGENCY",
+          "82998 30670",
+          "968",
+          "Sale",
+          "Paid",
+          "2348.00",
+          "2348.00",
+          "0.00",
+          "0.00"
+        ]
+      }
+    ],
+    "appAssumedHeaderRow": 1,
+    "appHeaders": [
+      "Generated on Jun 28,2026 at 02:13 pm",
+      "column_1",
+      "column_2",
+      "column_3",
+      "column_4",
+      "column_5",
+      "column_6",
+      "column_7",
+      "column_8",
+      "column_9",
+      "column_10",
+      "column_11",
+      "column_12"
+    ],
+    "appHeaderMapping": {
+      "mapping": {},
+      "unmapped": [
+        "Generated on Jun 28,2026 at 02:13 pm",
+        "column_1",
+        "column_2",
+        "column_3",
+        "column_4",
+        "column_5",
+        "column_6",
+        "column_7",
+        "column_8",
+        "column_9",
+        "column_10",
+        "column_11",
+        "column_12"
+      ]
+    },
+    "parsedRows": 63,
+    "firstParsedRows": [
+      {
+        "Generated on Jun 28,2026 at 02:13 pm": "UserName",
+        "column_1": "All Users",
+        "column_2": "",
+        "column_3": "",
+        "column_4": "",
+        "column_5": "",
+        "column_6": "",
+        "column_7": "",
+        "column_8": "",
+        "column_9": "",
+        "column_10": "",
+        "column_11": "",
+        "column_12": ""
+      },
+      {
+        "Generated on Jun 28,2026 at 02:13 pm": "",
+        "column_1": "",
+        "column_2": "",
+        "column_3": "",
+        "column_4": "",
+        "column_5": "",
+        "column_6": "",
+        "column_7": "",
+        "column_8": "",
+        "column_9": "",
+        "column_10": "",
+        "column_11": "",
+        "column_12": "Banks"
+      },
+      {
+        "Generated on Jun 28,2026 at 02:13 pm": "Date",
+        "column_1": "Party Name",
+        "column_2": "Phone No.",
+        "column_3": "Party's GSTIN No.",
+        "column_4": "Order No.",
+        "column_5": "Invoice No.",
+        "column_6": "Transaction Type",
+        "column_7": "Payment Status",
+        "column_8": "Total Amount",
+        "column_9": "Received Amount",
+        "column_10": "Balance Amount",
+        "column_11": "Description",
+        "column_12": "RAJAT PANDEY"
+      }
+    ],
+    "likelyHeaderRow": 4,
+    "likelyHeaders": [
+      "Date",
+      "Party Name",
+      "Phone No.",
+      "Party's GSTIN No.",
+      "Order No.",
+      "Invoice No.",
+      "Transaction Type",
+      "Payment Status",
+      "Total Amount",
+      "Received Amount",
+      "Balance Amount",
+      "Description",
+      "RAJAT PANDEY"
+    ],
+    "likelyHeaderMapping": {
+      "mapping": {
+        "invoiceDate": 0,
+        "partyName": 1,
+        "mobile": 2,
+        "invoiceNo": 5,
+        "totalAmount": 8,
+        "itemName": 11
+      },
+      "unmapped": [
+        "Party's GSTIN No.",
+        "Order No.",
+        "Transaction Type",
+        "Payment Status",
+        "Received Amount",
+        "Balance Amount",
+        "RAJAT PANDEY"
+      ]
+    },
+    "importResult": {
+      "success": false,
+      "recordCount": 0,
+      "errors": [
+        {
+          "row": 0,
+          "field": "_server",
+          "message": "MARG_ERP_FIELD_MAP is not defined",
+          "stack": "ReferenceError: MARG_ERP_FIELD_MAP is not defined\n    at file:///C:/Users/shash/OneDrive/Desktop/VYAPYANTRA/src/modules/file-import/utils/dataCleaner.js:125:65\n    at Array.filter (<anonymous>)\n    at detectImportProfile (file:///C:/Users/shash/OneDrive/Desktop/VYAPYANTRA/src/modules/file-import/utils/dataCleaner.js:125:34)\n    at normalizeData (file:///C:/Users/shash/OneDrive/Desktop/VYAPYANTRA/src/modules/file-import/core/normalizeData.js:20:25)\n    at processServerImport (file:///C:/Users/shash/OneDrive/Desktop/VYAPYANTRA/server/services/importProcessor.js:33:22)\n    at file:///C:/Users/shash/OneDrive/Desktop/VYAPYANTRA/tmp/analyze-imports.mjs:65:23"
+        }
+      ],
+      "warnings": [],
+      "meta": {},
+      "firstRecords": []
+    }
+  }
+]

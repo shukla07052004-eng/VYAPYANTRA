@@ -5,6 +5,7 @@ import { buildReportState } from '../data/reportUtils.js'
 import { Button, Card, CardBody, CardHead, FormGrid, Input, KpiCard, Modal, PageHeader, Select, Table, Textarea } from '../components/ui/index.js'
 import { downloadCsv, fmt, fmtShort, printTextReport, todayISO } from '../utils/helpers.js'
 import { useToast } from '../context/ToastContext.jsx'
+import ErpImportModal from '../components/import/ErpImportModal.jsx'
 
 const EXPENSE_CATEGORIES = [
   'Electricity',
@@ -52,6 +53,7 @@ export default function ExpenseManagementPage() {
   const { expenses, addExpense, invoices, purchases, parties, itemMaster } = useApp()
   const toast = useToast()
   const [open, setOpen] = useState(false)
+  const [importOpen, setImportOpen] = useState(false)
   const [fromDate, setFromDate] = useState('')
   const [toDate, setToDate] = useState('')
   const [categoryFilter, setCategoryFilter] = useState('All')
@@ -132,11 +134,18 @@ export default function ExpenseManagementPage() {
 
   return (
     <div className="animate-slide">
+      <ErpImportModal open={importOpen} onClose={() => setImportOpen(false)} defaultKind="expenses" />
       <PageHeader
         title="Expense Management"
         sub="Daily business and worker-related expenses with export-ready analytics and keyboard-first entry."
         right={
           <>
+            <Button
+              variant="ghost"
+              onClick={() => setImportOpen(true)}
+            >
+              Import
+            </Button>
             <Button
               variant="ghost"
               onClick={() => exportExpenseWorkbook(filteredExpenses, `Range ${fromDate || 'start'} to ${toDate || 'today'} | Total ${fmt(totalExpenses)}`)}

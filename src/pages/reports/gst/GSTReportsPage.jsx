@@ -6,12 +6,10 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import {
   processInvoice, calcITC, calcNetGST, buildGSTR3B,
-  fmtRs, round2,
+  fmtRs, round2, INVOICE_TYPES,
 } from '../../../utils/gstEngine.js'
-import {
-  GST_INVOICES, GST_PURCHASES, SELLER_GSTIN,
-} from '../../../data/gstData.js'
 import { BUSINESS } from '../../../data/store.js'
+import { useApp } from '../../../context/AppContext.jsx'
 import useKeyboardListNavigation from '../../../hooks/useKeyboardListNavigation.js'
 import { useEscapeAction } from '../../../context/EscapeContext.jsx'
 
@@ -46,7 +44,9 @@ const TITLES = {
 }
 
 export default function GSTReportsPage({ onBack }) {
+  const { invoices, purchases, parties, itemMaster } = useApp()
   const [active, setActive] = useState('dashboard')
+  const sellerGSTIN = BUSINESS.gstin
   const sidebarFocus = useKeyboardListNavigation({
     orientation: 'vertical',
     onSelect: (_, index) => setActive(NAV_ITEMS[index]?.id ?? 'dashboard'),
@@ -70,13 +70,13 @@ export default function GSTReportsPage({ onBack }) {
 
   // ── Process all invoices once ─────────────────────────────
   const processedSales = useMemo(() =>
-    GST_INVOICES.map(inv => processInvoice(inv, SELLER_GSTIN)),
-    []
+    invoices.map((invoice) => processInvoice(toGstSalesInvoice(invoice, itemMaster), sellerGSTIN)),
+    [invoices, itemMaster, sellerGSTIN]
   )
 
   const itcData = useMemo(() =>
-    calcITC(GST_PURCHASES, SELLER_GSTIN),
-    []
+    calcITC(purchases.map((purchase) => toGstPurchaseInvoice(purchase, parties)), sellerGSTIN),
+    [parties, purchases, sellerGSTIN]
   )
 
   const outputTotals = useMemo(() => {
@@ -207,7 +207,7 @@ export default function GSTReportsPage({ onBack }) {
         {/* Footer GSTIN */}
         <div style={{ padding: '14px 16px', borderTop: '1px solid rgba(255,255,255,.07)' }}>
           <div style={{ fontSize: 10, color: 'rgba(255,255,255,.2)', marginBottom: 2 }}>SELLER GSTIN</div>
-          <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'rgba(255,255,255,.4)', letterSpacing: '.04em' }}>{SELLER_GSTIN}</div>
+          <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'rgba(255,255,255,.4)', letterSpacing: '.04em' }}>{sellerGSTIN}</div>
         </div>
       </aside>
 

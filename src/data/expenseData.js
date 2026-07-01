@@ -1,6 +1,6 @@
-import { INIT_EXPENSES } from './store.js'
+import { loadErpState } from './store.js'
 
-export const expenseData = INIT_EXPENSES
+export const expenseData = loadErpState().expenses
 
 export const createExpenseRecord = (expense) => ({
   id: Date.now(),

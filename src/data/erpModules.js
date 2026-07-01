@@ -20,7 +20,7 @@ export const ERP_SIDEBAR_ITEMS = [
     label: 'AI Analysed',
     icon: 'spark',
     children: [
-      { id: 'sales-prediction', path: '/ai-reports/sales-prediction', label: 'Sales Prediction' },
+      { id: 'sales-prediction', path: '/ai-reports/sales-prediction/forecast', label: 'Sales Prediction' },
       { id: 'purchase-prediction', path: '/ai-reports/purchase-prediction', label: 'Purchase Prediction' },
       { id: 'dead-stock-analysis', path: '/ai-reports/dead-stock-analysis', label: 'Dead Stock' },
       { id: 'fast-moving-items', path: '/ai-reports/fast-moving-items', label: 'Fast Moving Items' },
@@ -100,7 +100,7 @@ export const PRIMARY_NAV_SECTIONS = [
 ]
 
 export const AI_REPORT_DEFINITIONS = [
-  { id: 'sales-prediction', path: '/ai-reports/sales-prediction', name: 'Sales Prediction', desc: 'Forecast invoice velocity and projected turnover.' },
+  { id: 'sales-prediction', path: '/ai-reports/sales-prediction/forecast', name: 'Sales Prediction', desc: 'Forecast demand, stock needs and revenue by week or month.' },
   { id: 'purchase-prediction', path: '/ai-reports/purchase-prediction', name: 'Purchase Prediction', desc: 'Estimate procurement demand from buying patterns.' },
   { id: 'dead-stock-analysis', path: '/ai-reports/dead-stock-analysis', name: 'Dead Stock Analysis', desc: 'Track slow or non-moving inventory.' },
   { id: 'fast-moving-items', path: '/ai-reports/fast-moving-items', name: 'Fast Moving Items', desc: 'Monitor highest velocity SKUs.' },
